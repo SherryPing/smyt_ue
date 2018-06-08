@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/fill/fill",
+    "pages/report/report",
+    "pages/result/result",
+    "pages/result1/result",
+    "pages/result2/result",
+    "pages/logs/logs",
+    "pages/infoFill/infoFill",
+    "pages/result3/result"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#22BFFF",
+    "navigationBarTitleText": "HFMI指数",
+    "navigationBarTextStyle": "white"
+  }
+}

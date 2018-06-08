@@ -1,0 +1,168 @@
+/* pages/report/report.wxss */
+page{
+  font-size: 24rpx;
+}
+.top-tab {
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.top-tab>view {
+  display: inline-block;
+  text-align: center;
+  height: 28rpx;
+  line-height: 28rpx;
+  width: 49%; 
+}
+.top-tab>view:first-child {
+  border-right: 2rpx solid #eee;
+}
+.top-tab>view view{
+  width: 120rpx;
+  margin: 0 auto;
+  height: 50rpx;
+}
+.top-tab>view view.active{
+  color: #22BFFF;
+  border-bottom: 4rpx solid #22BFFF;
+}
+.mon-view {
+  background: #FBF9F5;
+  padding: 0 20rpx;
+}
+.mon-view .title {
+  width: 100%;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+}
+.card {
+  background: #fff;
+  box-shadow: 0 0 2rpx 0 #5394FB;
+  border-radius: 4rpx;
+  padding: 24rpx 20rpx;
+  overflow:hidden;
+  margin-bottom: 20rpx;
+}
+.card>view {
+  display: inline-block;
+}
+.card .left-part {
+  width: 200rpx;
+  /* padding: 20rpx 6rpx 20rpx 0;   */
+  float:left;
+  padding-top:40rpx;
+}
+.card .right-part {
+  width: calc(100% - 230rpx);
+  padding: 0 0 0 20rpx;
+  border-left: 2rpx dashed #D0D0D0;
+  float:left;
+}
+.per-line {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.per-line>view {
+  display: inline-block;
+}
+.per-line .percent {
+  height: 28rpx;
+  width: 50%;
+}
+.per-line .percent>view {
+  height: 28rpx;
+}
+.per-line>view:first-child {
+  text-align: right;
+  width: 33%;
+  padding-right: 20rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+}
+.per-line view:last-child {
+  width: 12%;
+  text-align: right;
+}
+/* .canvas {
+  width: 370px; 
+  height: 200px;
+  /* border: 1rpx solid #eee; */
+  /* margin: 0 auto;
+} */ 
+.result-card {
+  position: relative;
+  /* width: 100%;  */
+  height: 166rpx;
+  border: 2rpx solid #eee;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+.result-card .left-part {
+  display: inline-block;
+}
+.result-card .date {
+  position: absolute;
+  top: 75rpx;
+  left: 40rpx;
+  width: 180rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 2rpx solid #fff;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+}
+.result-card .right-part {
+  display: inline-block;
+  width: calc(100% - 250rpx);
+  font-size: 24rpx;
+  color: #888888;
+  padding-left: 20rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.result-card .right-part .title {
+  color: #3C3C3C;
+  font-size: 32rpx;
+  height: 62rpx;
+  line-height: 40rpx;
+}
+.result-card .right-part .bottom-date {
+  text-align: right;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.result-card .right-part .con{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.ago-tip {
+  text-align: center;
+  color: #888888;
+  margin: 40rpx 0;
+}
+.qr-code {
+  padding: 0;
+}
+.qr-code image {
+  vertical-align: bottom;
+}
+ec-canvas.tab-canvas {
+  position: absolute;
+  top: 80rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+ec-canvas.no-tab {
+  width: 100%;
+  height: 100%;
+}
+
+ button {
+  margin: 10px;
+} 

@@ -1,0 +1,75 @@
+/**app.wxss**/
+.indent50{
+  text-indent: 50rpx;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.tl {
+  text-align: left;
+}
+.tr {
+  text-align: right;
+}
+.tc {
+  text-align: center;
+}
+.placeholder-class {
+  color: #c0c0c0;
+  font-size: 24rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.bottom-btn {
+  text-align: center;
+  margin-top: 40rpx;
+}
+.red {
+  background: #F54545;
+}
+.blue {
+  background: #1F79EB;
+}
+.green {
+  background: #27BF5B;
+}
+.gold{
+  background: #FBB42B;
+}
+.ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*  重写 radio 样式  */
+radio {
+  text-align:center!important;
+}
+radio .wx-radio-input{
+   width: 26rpx;
+   height: 26rpx; 
+   text-align:center!important;
+}
+
+radio .wx-radio-input.wx-radio-input-checked{
+   /* width: 20rpx;
+   height: 20rpx;
+   border: 4rpx solid #22BFFF!important; */
+   border-color:#22BFFF !important;
+   background: #22BFFF !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%; 
+    width: 24rpx;
+   height: 24rpx; 
+   line-height: 24rpx;
+   text-align: center;
+   font-size:2rpx;  
+    background: #fff;  
+}
+checkbox-group label view,radio-group label view {
+  display: inline-block;
+}

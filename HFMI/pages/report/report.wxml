@@ -1,0 +1,94 @@
+<wxs src="../../utils/util.wxs" module="util" />
+<!--往期报告-->
+<view>
+    <block wx:if="{{auth}}">
+      <view class='top-tab'>
+        <view bindtap='tabView' data-id='month'><view class='{{tab=="month"?"active":""}}'>本月</view></view>
+        <view bindtap='tabView' data-id='ago'><view class='{{tab=="ago"?"active":""}}'>往期报告</view></view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='top-tab'>
+        <view data-id='ago' style='width:98%'><view class='{{tab=="ago"?"active":""}}'>往期报告</view></view>
+      </view>
+    </block>
+  <block wx:if='{{tab=="month"}}'>
+    <view class='mon-view'>
+      <view class='title'>感谢您提交问卷，截止到目前，共有{{statistic_number}}人填写问卷</view>
+      <view class='card' wx:for="{{questionnaire_result}}">
+        <view class='left-part' style='padding-top:{{item.index=="2"||item.index=="6"||item.index=="11"||item.index=="15"?"10rpx":"30rpx"}}'>
+          {{item.index}}、{{item.name}}
+        </view>
+        <view class='right-part'>
+          <view class='per-line' wx:for="{{item.value}}" wx:for-item="i" wx:for-index="in">
+            <view>{{i.name}}</view>
+            <view class='percent'>
+              <view class='{{color[in]}}' style='width:{{i.value*100}}px;'></view>
+            </view>
+            <view>{{util.fmtRatio(i.value,1)}}</view>
+          </view>
+        </view>
+      </view>     
+    </view>
+  </block>
+  <block wx:else>
+    <view>
+       <view class='canvas' style='width:740rpx;height:550rpx;'>  
+        <block wx:if="{{auth}}">         
+        <ec-canvas class='tab-canvas' wx:if="{{!isDisposed}}" style='width:740rpx;height:550rpx;' id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+       </block>
+       <block wx:else> 
+        <ec-canvas class='no-tab' id="mychart-dom-line" canvas-id="mychart-line" ec="{{ec2}}"></ec-canvas>
+        </block> 
+      </view> 
+       <view class='result-card' bindtap='gotopublic' data-id='4'>
+        <view class='left-part'>
+          <image src="../../image/listImg.png" style='width:224rpx;height:166rpx;'></image>
+          <view class='date'>2018年4月</view>
+        </view>
+        <view class='right-part'>
+          <view class='title'>2018年4月【HFMI 指数】报告</view>
+          <view class='con'>2018年4月HFMI指数为56.67，环比下跌0.20%，私募基金经理对于私募后市行情看涨预期与上月基本持平。</view>
+          <view class='bottom-date'>2018年5月11日</view>
+        </view>
+      </view>
+      <view class='result-card' bindtap='gotopublic' data-id='3'>
+        <view class='left-part'>
+          <image src="../../image/listImg.png" style='width:224rpx;height:166rpx;'></image>
+          <view class='date'>2018年3月</view>
+        </view>
+        <view class='right-part'>
+          <view class='title'>2018年3月【HFMI 指数】报告</view>
+          <view class='con'>2018年3月HFMI指数为56.78，环比下跌4.44%，私募基金经理对于私募后市行情看涨预期有所下跌，大部分私募基金经理对市场持谨慎态度。</view>
+          <view class='bottom-date'>2018年3月6日</view>
+        </view>
+      </view>
+       <view class='result-card' bindtap='gotopublic' data-id='2'>
+        <view class='left-part'>
+          <image src="../../image/listImg.png" style='width:224rpx;height:166rpx;'></image>
+          <view class='date'>2018年2月</view>
+        </view>
+        <view class='right-part'>
+          <view class='title'>2018年2月【HFMI 指数】报告</view>
+          <view class='con'>2018年2月HFMI指数为59.42，大于50，且高于前期值，表示私募行业呈持续上升趋势，诸多私募基金经理对于私募后市行情普遍乐观</view>
+          <view class='bottom-date'>2018年2月5日</view>
+        </view>
+      </view>
+       <view class='result-card' bindtap='gotopublic' data-id='1'>
+        <view class='left-part'>
+          <image src="../../image/listImg.png" style='width:224rpx;height:166rpx;'></image>
+          <view class='date'>2018年1月</view>
+        </view>
+        <view class='right-part'>
+          <view class='title'>2018年1月【HFMI 指数】报告</view>
+          <view class='con'>HFMI指数以50为荣枯分水线，2018年1月HFMI指数为57.99，大于50，表示私募行业呈上升趋势，诸多私募基金经理对于私募后市行情普遍乐观。</view>
+          <view class='bottom-date'>2018年1月5日</view>
+        </view>
+      </view>
+      <view class='ago-tip'>关注公众号可查看更多往期报告</view>
+    </view>   
+  </block>
+  <view class='qr-code' >
+      <image src="../../image/wxgzh.png" style='width:100%;height:200rpx;' bindlongtap='previewImage'/>
+    </view>
+</view>

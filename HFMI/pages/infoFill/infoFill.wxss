@@ -1,0 +1,120 @@
+/* pages/infoFill/infoFill.wxss */
+page {
+  font-size: 24rpx;
+  color: #3C3C3C;
+}
+.title-logo {
+  margin: 40rpx 70rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 4rpx dashed #D0D0D0;
+}
+.info {
+  padding:0 40rpx;
+  line-height: 36rpx;
+}
+.info>view {
+  margin-bottom: 10rpx;
+}
+.bottom-part {
+  padding:50rpx 40rpx 10rpx 40rpx;
+}
+.title {
+  text-align: center;
+}
+.main-title {
+  font-size: 28rpx;
+}
+.main-title view {
+  position:relative;
+  top:-6rpx;
+  left:20rpx;
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-weight: 600;
+}
+.title-tip {
+  color: #BF9955;
+  font-size: 24rpx;
+}
+.fill-line {
+  height: 80rpx;
+  line-height: 90rpx;
+  border-bottom: 2rpx solid #D3D3D3;
+}
+.info-form {
+  margin: 30rpx 0;
+}
+.fill-line image {
+  position:relative;
+  top:6rpx;
+  left:10rpx;
+}
+/* .fill-line input {
+  display: inline-block;
+  width: calc(100% - 100rpx);
+  /* margin-left: 20rpx; */
+/* } */ 
+.img-view {
+  display: inline-block;
+  width: 70rpx;
+}
+.input-view {
+  display: inline-block;
+  width: calc(100% - 100rpx);
+  height: 100%;
+  line-height: 100%;
+}
+.input-view input {
+  position:relative;
+  /* top:10rpx; */
+}
+.line-q {
+  height: 50rpx;
+  line-height: 70rpx;
+}
+.line-a {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.radio-block {
+  display: inline-block;
+  width: 32%
+}
+.radio-block image {
+  position: relative;
+  top: 4rpx;
+}
+.radio-block text{
+  margin-left: 10rpx;
+}
+
+/*  重写 checkbox 样式  */
+checkbox .wx-checkbox-input{
+   width: 24rpx;
+   height: 24rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border-color: #22BFFF; 
+   background: #22BFFF;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   width: 24rpx;
+   height: 24rpx;
+   line-height: 24rpx;
+   text-align: center;
+   font-size:20rpx;
+   color:#fff;
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+checkbox-group,radio-group {
+  display: flex;
+}
+checkbox-group label,radio-group label {
+  flex: 1;
+}
+
+
+

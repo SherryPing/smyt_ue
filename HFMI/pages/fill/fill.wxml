@@ -1,0 +1,36 @@
+<!--问卷填写-->
+<view>
+  <view class='top-tip'>
+    <image src="../../image/info.png" style='width:32rpx;height:32rpx;'></image> 
+    <text>本次问卷共有{{manage_num}}题，提交后可查看报告。</text>
+  </view>
+  <block wx:if="{{list3}}">
+    <view class='que_block' wx:for="{{questionnaire_list}}">
+      <view class='que'>{{item.index}}.{{item.name}}</view>
+      <view class='ans'>
+        <radio-group bindchange="radioChange" data-index="{{item.index}}">
+          <label wx:for="{{item.value}}" wx:for-item="i" wx:for-index="in">
+            <radio value="{{i}}" checked="{{questionnaire_list3[index].value==i?true:false}}" ></radio>
+            <view>{{i}}</view>         
+          </label>  
+        </radio-group>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='que_block' wx:for="{{questionnaire_list}}">
+      <view class='que'>{{item.index}}.{{item.name}}</view>
+      <view class='ans'>
+        <radio-group bindchange="radioChange" data-index="{{item.index}}">
+          <label wx:for="{{item.value}}" wx:for-item="i">
+            <radio value="{{i}}" ></radio>
+            <view>{{i}}</view>         
+          </label>  
+        </radio-group>
+      </view>
+    </view>
+  </block>
+  <view class='bottom-btn' bindtap='goToReport'>
+        <image src="../../image/confirm-btn.png" style='width:510rpx;height:72rpx;'></image>
+      </view>
+</view>

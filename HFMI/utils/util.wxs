@@ -1,0 +1,15 @@
+var util = {
+fmtRatio: function (val, index) {
+  //index默认值为2
+  var index = arguments[1] ? arguments[1] : 2;
+
+  if (val == null || isNaN(val) || typeof (val) == "string" && val == '') {
+    return '--';
+  }
+  var ratio = (Math.round(val * 10000) / 100).toFixed(index);
+  return ratio + '%';
+}
+}
+module.exports = {
+  fmtRatio: util.fmtRatio
+}

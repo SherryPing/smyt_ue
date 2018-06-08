@@ -1,0 +1,108 @@
+
+<!--信息填写-->
+<view>
+  <view class='top-part'>
+    <view class='title-logo'>
+      <image class="mid-bg" src="../../image/logo.png" style='width:238rpx;height:64rpx;'></image>
+      <image class="mid-bg" src="../../image/renda.png" style='width:236rpx;height:64rpx;float:right;'></image>
+    </view>
+    <view class='info'>
+      <view>尊敬的基金经理：</view>
+      <view class='indent50'>您好！</view>
+      <view class='indent50'>HFMI（Hedge Fund Manager Index）指数由私募云通与中国人民大学量化投资研究所联合研究编制，旨在反映中国私募基金行业的增长或衰退。</view>
+      <view class='indent50'>通过HFMI指数，私募基金经理可以及时了解同行对资本市场的观点和看法，更好地进行投资决策。HFMI指数的荣枯也反映了私募基金经理们的投资信心，将成为中国金融市场发展的“晴雨表”。</view>
+      <view class='indent50'>HFMI指数的调查对象均为资深而专业的基金经理，采用定向邀请，匿名填写的方式完成调查。鉴于您和贵公司行业中的地位和影响力，特邀请您拨冗填写，共襄盛举！</view>
+      <view class='indent50'>HFMI指数将于每月5号，通过私募云通公众号（ ID : fofpower )发布。如您需要，我们也可发至您留存的邮箱。  
+    </view>
+    <view class='indent50'>此致</view>
+    <view>敬礼！</view>
+    <view>顺祝冬祺！</view>
+    <view style='overflow:hidden'>
+      <view class='fr tr' style='width:180rpx;'>李勇（博士）</view><view class='fr'>中国人民大学教授 ：</view>
+    </view>
+    <view style='overflow:hidden'>
+      <view class='fr tr' style='width:180rpx'>巫景飞（博士）</view><view class='fr'>私募云通创始人 ：</view>
+    </view>
+    </view>
+  </view>
+  <view class='middle-part'>
+    <image src="../../image/zhaomu.png" style='width:100%;height:276rpx;'></image>
+  </view>
+  <view class='bottom-part'>
+    <view class='title'>
+      <view class='main-title'>
+        <image src="../../image/infoFill.png" style='width:40rpx;height:40rpx;'></image>  <view> 基本信息填写</view>
+      </view>
+      <view class='title-tip'>基本信息中姓名、公司名称、联系人手机号为必填选项</view>
+    </view>
+    <view class='info-form'>
+      <view class='fill-line'>
+        <view class='img-view'>
+          <image src="../../image/name.png" style='width:40rpx;height:40rpx;'></image> 
+        </view>
+        <view class='input-view'>
+          <input placeholder='姓名' placeholder-class='placeholder-class' bindblur="bindname" value='{{name}}'></input> 
+        </view>
+      </view>
+      <view class='fill-line'>
+        <view class='img-view'>
+          <image src="../../image/companyName.png" style='width:40rpx;height:34rpx;'></image> 
+        </view>
+        <view class='input-view'>
+         <input placeholder='公司名称' placeholder-class='placeholder-class' bindblur="bindcompany" value='{{company}}'></input> 
+        </view>
+      </view>
+      <view class='fill-line'>
+        <view class='img-view'>
+          <image src="../../image/phone.png" style='width:32rpx;height:44rpx;'></image>
+        </view> 
+        <view class='input-view'>
+          <input placeholder='联系人手机号' placeholder-class='placeholder-class' bindblur="bindnumber" value='{{mobile}}'></input> 
+        </view>
+      </view>
+      <view class='fill-line'>
+        <view class='img-view'>
+          <image src="../../image/email.png" style='width:40rpx;height:34rpx;'></image> 
+        </view>
+        <view class='input-view'>
+          <input placeholder='联系邮箱' placeholder-class='placeholder-class' bindblur="bindemail" value='{{email}}'></input> 
+        </view>
+      </view>
+      <view class='check-line'>
+        <view class='line-q'>{{quearr1.name}}</view>
+        <view class='line-a'>
+          <radio-group bindchange="radioChange" >
+            <label wx:for="{{quearr1.value}}">
+            <block wx:if='{{quearr1.checked==item}}'>
+                <radio value="{{item}}" checked></radio>
+              </block>
+              <block wx:else>
+                <radio value="{{item}}" ></radio>
+              </block>
+              <view>{{item}}</view>         
+            </label>  
+          </radio-group>
+        </view>
+      </view>
+      <view class='check-line'>
+        <view class='line-q'>{{quearr2.name}}</view>
+        <view class='line-a'>
+          <checkbox-group bindchange="checkboxChange" >
+            <label wx:for="{{quearr2.value}}">
+              <block wx:if='{{quearr2.checked[0]==item||quearr2.checked[1]==item||quearr2.checked[2]==item}}'>
+                <checkbox value="{{item}}" checked></checkbox>
+              </block>
+              <block wx:else>
+                <checkbox value="{{item}}" ></checkbox>
+              </block>
+                <view>{{item}}</view> 
+            </label> 
+          </checkbox-group>          
+        </view>
+      </view>
+      <view class='bottom-btn' bindtap='goToQue'>
+        <image src="../../image/next-btn.png" style='width:510rpx;height:72rpx;'></image>
+      </view>
+    </view>
+  </view>
+</view>

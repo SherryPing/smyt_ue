@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="main-bg" src="../../image/mainBg.png"></image>
+  <view class="main-btn-view">  
+  <block wx:if="{{auth}}">
+    <button class="main-btn" bindtap='goToFill'><image class="btn-logo" src="../../image/tianxieLogo.png"></image>修改填写</button>
+     <button class="main-btn" bindtap='goToReport' style="margin-top:30rpx;"><image class="btn-logo" src="../../image/chakanLogo.png"></image>查看报告</button>
+    </block>
+  <block wx:else>
+    <block  wx:if="{{!hasUserInfo}}">
+      <button class="main-btn" bindtap='goToFill'><image class="btn-logo" src="../../image/tianxieLogo.png"></image>欢迎填写</button>
+       <button class="main-btn" style="margin-top:30rpx;" bindtap='goToReport' ><image class="btn-logo" src="../../image/chakanLogo.png"></image>查看报告</button>
+    </block>
+    <block wx:else>
+      <button class="main-btn" bindtap='goToFill'><image class="btn-logo" src="../../image/tianxieLogo.png"></image>欢迎填写</button>
+       <button class="main-btn" bindtap='goToReport' style="margin-top:30rpx;"><image class="btn-logo" src="../../image/chakanLogo.png"></image>查看报告</button>
+    </block>
+  </block>
+  
+  </view>
+</view>
