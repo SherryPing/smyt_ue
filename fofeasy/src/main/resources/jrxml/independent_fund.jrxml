@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_fund" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="557aaaa2-b9c9-4cd6-af70-e3f5210bac9b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="453"/>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JR087667"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:\\Works\\Git\\easy\\fofeasy\\src\\main\\resources\\jrxml\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://file.fofpower.com/upload/2017-11-27/"+$P{FUND_ID}+"/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SHOW_TYPE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["performance"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info where fund_id=$P{FUND_ID} limit 1;]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="300">
+			<image scaleImage="RealSize" hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="555" height="65" uuid="c0ef0477-4686-421e-b9d1-37af1cf86e60">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<graphicElement fill="Solid"/>
+				<imageExpression><![CDATA["http://osz37q9fk.bkt.clouddn.com/reportImg.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="20" y="191" width="1" height="80" uuid="9920e586-d3e2-4b58-858d-fa2ce56f8c64"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#3D92CF"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="148" width="113" height="28" uuid="93d86467-351a-4863-9ca6-1a103cfbb7ef"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[基金概况]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="195" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="790f0bc9-66a8-4f42-8d3a-79efff0b9395"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[基金全称:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="101" y="194" width="159" height="21" uuid="a8b39fb6-3962-48b8-b019-04846171fdee">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fund_name} ==null?"--":$F{fund_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="290" y="194" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="59c08891-5c1a-4914-9ca8-40b38bd876b5"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[成立日期:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="218" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="5a9d6c16-7330-4555-bbeb-b56e0fd06672"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[投资顾问:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="348" y="194" width="150" height="21" uuid="59f9e9d9-fe48-46b9-af6f-13de2c14b353">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foundation_date} ==null?"--":$F{foundation_date}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="101" y="217" width="159" height="21" uuid="f311db64-0826-42ea-a0f6-7ae860605bfe">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{org_name} ==null?"--":$F{org_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="290" y="218" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="6a370e09-ebc5-48c8-841c-ade2db7fa834"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[投资策略:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="348" y="217" width="200" height="21" uuid="7dd2bed7-9cf2-4306-b0f4-32dcfd419213">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fund_type_strategy} == null?"--":$F{fund_type_strategy}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="101" y="241" width="159" height="21" uuid="fa497a81-4064-4ef8-8826-de80c6889b3e">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nav_date} ==null?"--":$F{nav_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="241" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="41055021-be9b-4b41-b166-131957486833"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[净值日期:]]></text>
+			</staticText>
+			<textField pattern="###0.0000" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="348" y="241" width="150" height="21" uuid="edd37fb4-4851-4a68-90aa-0a5bb5bcf023">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nav} ==null?"--":$F{nav}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="290" y="241" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="1f859440-66c3-4b0e-9e97-3d291a921e8b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[单位净值:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="84" width="555" height="39" uuid="6745447e-f9cc-4535-a569-7aa8c997abd3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fund_name}+"报告"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="50">
+			<printWhenExpression><![CDATA[$P{SHOW_TYPE}.equals("performance")?true:false]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="50" uuid="43aeffc3-5c8d-4ee8-8a54-a8e64e688e64"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_fund_evaluation.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$P{SHOW_TYPE}.equals("performance")?true:false]]></printWhenExpression>
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="555" height="50" uuid="cb5a79d9-6e97-47c0-b4c4-d1260bb7cf9f"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_performance.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$P{SHOW_TYPE}.equals("position")?true:false]]></printWhenExpression>
+			<subreport runToBottom="true">
+				<reportElement x="0" y="0" width="555" height="50" uuid="dd011ab5-181a-4b09-a776-e4a448e0a5fb"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$P{SHOW_TYPE}.equals("attribution")?true:false]]></printWhenExpression>
+			<subreport isUsingCache="true" runToBottom="true">
+				<reportElement x="0" y="0" width="555" height="50" uuid="4c8f98b9-a2c4-4de5-8f43-b583a834dd97"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_attribution.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$P{SHOW_TYPE}.equals("performance")?true:false]]></printWhenExpression>
+			<subreport runToBottom="true">
+				<reportElement x="0" y="0" width="555" height="50" uuid="31912e80-3c85-4306-92d3-18dc6302ca9e"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_scene.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<subreport runToBottom="false">
+				<reportElement x="0" y="0" width="555" height="50" uuid="9fe72cfa-ea46-4194-8974-24e85215d1c2"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_smyt.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" uuid="216ece28-3b80-4fa1-8027-461d6cc456fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

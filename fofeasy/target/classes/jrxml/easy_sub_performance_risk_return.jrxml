@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="easy_sub_performance_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="41b04037-0678-4613-b945-66d248fb3eaa">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ireport\\jrxml_new\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JR087571"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://192.168.1.111/upload/2017-07-17/JR087571/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from return_data where fund_id=$P{FUND_ID} and type="risk_adjust" limit 1;]]>
+	</queryString>
+	<field name="bm" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pe" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="row_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="indicator" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="21" y="15" width="507" height="90" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="fb7e4dc8-9ae6-4d62-9a7f-914680856644"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="41" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="86636779-4097-45eb-9483-cad981febf51">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[卡玛比率：基金在统计区间内超额年化收益和最大回撤之比。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="73" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="29811530-27c1-46c2-9063-2f2b0d53ba0f">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[风险价值调整比：基金在统计区间内每一单位风险价值所获得的超额收益率，无风险收益采取一年期国债，可以广泛用于投资组合选择和投资绩效评估等]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="37" y="49" width="4" height="4" forecolor="#0099CC" uuid="0f3d4dfc-4ea9-483b-8b9a-a3d2b2952400"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="50" y="41" width="213" height="32" forecolor="#666666" uuid="3d5a7794-7627-423e-9644-08c7572d7f4a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[夏普比率：基金在统计区间内每一单位总风险所获得的超额年化收益率，风险用年化波动率指标刻画。 ]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="276" y="49" width="4" height="4" forecolor="#0099CC" uuid="8551acf9-1028-4617-888f-5c67be78a740"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement mode="Transparent" x="33" y="20" width="469" height="21" forecolor="#666666" backcolor="#FFFFFF" uuid="40506260-9159-4cb8-8f17-a76aa09af2e6">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[风险调整收益指标]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="50" y="73" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="663ea6fd-fdd6-4c51-800c-0944c4c0c7d4">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[索提诺比率：基金在统计区间内超额年化收益和年化下行波动率之比，适合对资产价值下跌较敏感的投资者。]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="37" y="80" width="4" height="4" forecolor="#0099CC" uuid="9670654b-aab4-4cf4-9193-48b89ee5939d"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="276" y="80" width="4" height="4" forecolor="#0099CC" uuid="0efb00c7-04b2-4470-8447-da81f37d3dc0"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+		</band>
+	</title>
+	<detail>
+		<band height="200">
+			<line>
+				<reportElement x="20" y="30" width="75" height="1" uuid="6f995b82-5b77-4304-aa5f-3dab856455cd"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="21" y="39" width="220" height="156" uuid="934bb629-364f-4311-b37a-184a9d48e739"/>
+				<subreportParameter name="TYPE">
+					<subreportParameterExpression><![CDATA["risk_adjust"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "easy_sub_performance_table.jasper"]]></subreportExpression>
+			</subreport>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="246" y="21" width="286" height="179" uuid="429ebfcf-c232-4ba7-8595-7bf63a8a5ba3"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"risk_adjust_contrast.png"]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="20" y="10" width="100" height="20" uuid="c1549c01-c634-4f1c-870c-864a11729f96"/>
+				<textElement>
+					<font isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indicator}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

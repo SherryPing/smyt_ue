@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_asset_futures_varieties" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c392a3be-eb25-46fc-8d1a-18db9d8d1327">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["7FC709D949C10FB0D6072AC2205C7A5A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://file.fofpower.com/upload/2017-11-15/"+$P{FUND_ID}+"/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from ireport_future_variety where fund_id = $P{FUND_ID} AND type = 'overnight']]>
+	</queryString>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="row_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lots" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gain" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="loss" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="revenue" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="percentage" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="update_time" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="220">
+			<image onErrorType="Blank">
+				<reportElement x="27" y="47" width="271" height="151" uuid="0e1475c0-9453-49e7-afa3-d6ec5a5c91e1"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"future_varitey_overnight.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="20" y="11" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="635b6b19-7534-4a24-b142-55ad79a8a1e1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="30" y="14" width="104" height="23" uuid="6609f452-cfe0-449a-8d95-488a45a99ac7"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[各品种交易盈亏图]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="312" y="47" width="224" height="151" uuid="ce49e52b-6738-4304-822b-e9cf0945f09d"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_average_position.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="110" y="0" width="84" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="7ef244b8-deb8-4373-8392-a91e5aa9b196"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[交易手数]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="26" y="0" width="84" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="3bfb9e9d-60cf-48a9-80b6-0b4aa94291d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[品种]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="278" y="0" width="84" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="9b7f3b7c-05e6-45bb-ab02-dc1c7f189526"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[亏损（万元）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="0" width="84" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="850bc9cb-3a46-42d5-9318-502c6a460327"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[盈利（万元）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="362" y="0" width="84" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="4df07457-9737-4d03-815f-86d5b0155ec0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[总盈亏（万元）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="446" y="0" width="84" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="7be7115d-17fe-4e07-ae0e-f9b1cedc1a0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[盈亏占比]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20">
+			<textField pattern="###0.00">
+				<reportElement x="278" y="0" width="84" height="20" uuid="34f6547b-bcfe-4c6a-a0a9-7256e231c8ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loss}==null?"--":$F{loss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="0" width="84" height="20" uuid="ef5527ba-2c20-45f4-a421-f39af182a5e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{row_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="84" height="20" uuid="7c4182b3-4133-4f96-998a-9298a64d2631"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lots}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="194" y="0" width="84" height="20" uuid="4c8a097a-cc88-4bc6-b992-963e7db50695"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gain}==null?"--":$F{gain}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="362" y="0" width="84" height="20" uuid="b9f19678-2e5f-43c0-95a4-b952587cb67e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{revenue}==null?"--":$F{revenue}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="446" y="0" width="84" height="20" uuid="c9bcc83b-9076-4f6c-a7ad-3db0c3773a5e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{percentage}==null?"--":$F{percentage}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

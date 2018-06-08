@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_asset_futures_positions_table2" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a4bf18ab-9c03-47f4-bd95-b6e6fbd5d608">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FUND_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from ireport_future_realized_pl_times where fund_id = $P{FUND_ID}]]>
+	</queryString>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="row_ame" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_total" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_profit" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_loss" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_plag.Helper._ratio" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_profit_average" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_loss_average" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hands_pl_averageag.Helper._ratio" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="update_time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="107" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="4c8eacfa-6486-4d77-9a3c-0da8d56e3b6c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[实际交易]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="167" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="33d13076-3add-4ba3-94fe-e97aa03b6dd4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[盈利]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="0" width="80" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="0066fb93-cf24-44ca-aea1-6d6b7bc2f6d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="227" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="de3cac98-1ee5-4186-b029-b39aba01d88a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[亏损]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="287" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="f4eec58b-42fe-44a6-84a6-7352e21493db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[盈亏比]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="407" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="7bf6b199-294f-4454-8463-4b9c4c834273"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[平均亏损（万元）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="347" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="028d3de8-be09-4b8e-ac5b-935f967828c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[平均盈利（万元）]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="467" y="0" width="60" height="25" forecolor="#FFFFFF" backcolor="#4193CC" uuid="762e36e6-fc97-426a-bdc3-849b16ca8440"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[平均盈亏比]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20">
+			<textField pattern="###0.00">
+				<reportElement x="107" y="0" width="60" height="20" uuid="0ade7782-f486-48be-88ba-fc7dba9ad73b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_total}== null ? "--":$F{hands_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="167" y="0" width="60" height="20" uuid="664e1891-c283-49a3-80e5-a3de080b4aae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_profit}== null ? "--":$F{hands_profit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="0" width="80" height="20" uuid="0471672e-e700-4681-baeb-dc20ac71f75f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{row_ame}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="227" y="0" width="60" height="20" uuid="1560c507-fb47-439a-91a7-c549990f85da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_loss}== null ? "--":$F{hands_loss}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="287" y="0" width="60" height="20" uuid="02b18433-68b4-4073-8746-9df0f60a3744"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_plag.Helper._ratio}== null ? "--":$F{hands_plag.Helper._ratio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="407" y="0" width="60" height="20" uuid="5c58e0f4-564e-4524-837a-aa9012c4805f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_loss_average}== null ? "--":$F{hands_loss_average}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="347" y="0" width="60" height="20" uuid="4640054f-15a1-45f0-a18e-ecb0574933bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_profit_average}== null ? "--":$F{hands_profit_average}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="467" y="0" width="60" height="20" uuid="c329ef7d-8800-40e6-88fb-fd41bf8c6d3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hands_pl_averageag.Helper._ratio}== null ? "--":$F{hands_pl_averageag.Helper._ratio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

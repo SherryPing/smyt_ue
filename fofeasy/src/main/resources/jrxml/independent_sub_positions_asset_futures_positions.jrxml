@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_asset_futures_positions" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="11926b8c-5f68-4721-b6fc-0f96457ac162">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FUND_ID" class="java.lang.String"/>
+	<parameter name="IMAGE_HOST" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from fund_info LIMIT 1]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="230" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="14" width="104" height="23" uuid="75c90dce-ad86-4697-adec-d6aa56e0d556"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[平均净头寸]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="11" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="0678f0e1-cca3-4a4b-84f2-6686a06d7672"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<image onErrorType="Blank">
+				<reportElement x="30" y="35" width="484" height="185" uuid="f5cd79f2-ea50-49bc-bd37-a3fa670ac890"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_average_position.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[false]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="50" uuid="9962e938-01d5-48b1-b64d-e6751c425095"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_positions_table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="300">
+			<image onErrorType="Blank">
+				<reportElement x="29" y="30" width="225" height="124" uuid="cb9ea68a-fca8-4e8a-b1e6-6d29eedfa960"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_realized_pl_trading_direction.png"]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="29" y="154" width="225" height="124" uuid="8d9fe2fc-3446-4165-aac1-b4344f0487f5"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_realized_pl_trading_type.png"]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement x="255" y="19" width="280" height="260" uuid="d4420d87-8e11-4558-9e1b-4de58b23eaf5"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_positions_table1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="230">
+			<staticText>
+				<reportElement x="30" y="14" width="104" height="23" uuid="63477f6e-bf89-436a-9712-906f3da673b8"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[交易盈亏]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="11" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="42efe27b-4412-4acf-b60a-bcc31cc547fc"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<image onErrorType="Blank">
+				<reportElement x="326" y="50" width="120" height="110" uuid="fbb0c66e-f3fd-4859-8a25-26edfe51166f"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_realized_pl_times.png"]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="107" y="50" width="120" height="110" uuid="6a475340-2263-4dab-b7f2-6c7d6a6c8042"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_realized_pl_hands.png"]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement x="0" y="180" width="555" height="50" uuid="338bee66-9202-4076-9272-12e47e70c56f"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_positions_table2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="120">
+			<subreport>
+				<reportElement x="0" y="69" width="555" height="50" uuid="f64d0141-7b8b-4787-9dcc-08a396725f6e"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_positions_table3.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="30" y="33" width="104" height="23" uuid="486d0225-056c-4d51-ab8e-e28f2fb9ef0d"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[特色指标]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="30" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="c0d96960-9e92-42ee-885f-c3bb4dc32212"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

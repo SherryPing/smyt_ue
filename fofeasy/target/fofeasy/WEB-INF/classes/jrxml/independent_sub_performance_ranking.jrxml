@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_performance_ranking" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7a7fa17d-69f2-4146-a26d-416e7b107e9d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JR087571"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\ireport\\jrxml_new\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://file.fofpower.com/upload/2017-10-17/"+$P{FUND_ID} +"/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info where fund_id=$P{FUND_ID}]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="150">
+			<rectangle>
+				<reportElement mode="Opaque" x="15" y="32" width="507" height="108" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="e442711b-881d-4491-b9a7-b0b77e8e018f"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="31" y="43" width="469" height="21" forecolor="#666666" backcolor="#FFFFFF" uuid="bd66def9-c79f-44b2-851d-6d6e659eda9b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[业绩指标]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="64" width="213" height="32" forecolor="#666666" uuid="516a6cf4-620a-4489-816b-1cdbbb5ec417">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[累计收益率：基金在统计区间内投资的回报率，使用基金区间最新复权累计净值计算]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="48" y="96" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="f75e24ed-5c95-48f7-b528-7845e8ea6473">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[最大回撤：基金在统计区间内的任一历史时点起，复权累计净值走到最低点时收益率回撤幅度的最大值]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="287" y="64" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="62b074ff-cbcf-45ad-b6cf-545ad4b13618">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[夏普比率：基金在统计区间内每一单位总风险所获得的超额年化收益率，无风险收益采取一年期国债，风险用年化波动率指标刻画]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="287" y="96" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="54b6e745-db07-4285-811a-dfdd8ca9d9c7">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[同类排序：基金战胜同策略产品的百分比，如55%表示该指标下基金战胜同策略产品的百分比为55%]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="35" y="72" width="4" height="4" forecolor="#0099CC" uuid="d8376f9d-9276-4458-bed9-3a2851985d1b"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="35" y="103" width="4" height="4" forecolor="#0099CC" uuid="6600ef0e-cc3e-4169-9777-13e4eaa0757f"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="274" y="103" width="4" height="4" forecolor="#0099CC" uuid="0e6e7f82-be04-4400-baf8-876f6dd59be0"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="274" y="72" width="4" height="4" forecolor="#0099CC" uuid="b9314c2a-16b9-4a8f-8cf4-fd830c6b3cb1"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+		</band>
+	</title>
+	<detail>
+		<band height="250" splitType="Stretch">
+			<line>
+				<reportElement x="20" y="34" width="59" height="1" uuid="044bc55f-298d-41f3-8234-dca41966069b"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="31" y="45" width="491" height="200" uuid="8b2919bd-305a-4dfe-ac93-2ddbc4125fb2"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"ranking.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="10" width="100" height="20" uuid="984e30de-1710-4dfe-bece-edac3ab8ad92">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[分指标排名]]></text>
+			</staticText>
+		</band>
+		<band height="270">
+			<line>
+				<reportElement x="20" y="34" width="59" height="1" uuid="5d1114d5-7df3-47aa-bd7d-bd9497ba834d"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="10" width="100" height="20" uuid="2ef29866-8db3-473c-b201-c2c4776ac822">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[基金累计收益率]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="31" y="45" width="491" height="220" uuid="f1f2826f-c71b-4e21-b237-f3250bfcdad0"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"nav.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="investment_adviser_base" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="72e62065-a775-4638-91ab-577b53cba844">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ORG_ID" class="java.lang.String"/>
+	<parameter name="IMAGE_HOST" class="java.lang.String"/>
+	<parameter name="RETURN_YEAR" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from fund_info limit 1]]>
+	</queryString>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="15" width="120" height="25" uuid="84abd72e-a5aa-42eb-b202-c40d660b2f81"/>
+				<textElement verticalAlignment="Top">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[产品分布]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="163" y="40" width="230" height="200" uuid="287cddc3-5ef2-47e2-a833-bdb36ab7b69f"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"org_fund_nums.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="220">
+			<staticText>
+				<reportElement x="20" y="15" width="120" height="25" uuid="ee5c5a75-6926-49c5-a142-23b3bb734421"/>
+				<textElement verticalAlignment="Top">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[投顾收益率]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="30" y="50" width="495" height="170" uuid="34ad0be8-1354-4e04-8479-761ccc5a0cab"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"org_year_return.png"]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="363" y="20" width="159" height="20" uuid="ac6e519b-d0a1-4c3d-bfb6-41f38f9ad0ec">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RETURN_YEAR}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="220">
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="363" y="20" width="159" height="20" uuid="1448cf2f-b09c-4a44-96d0-b5ab2b86f4bc">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="30" y="50" width="495" height="170" uuid="97173f84-7537-4e2f-a7c9-cda314212ffa"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"org_ranking.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="15" width="120" height="25" uuid="0dfe0c79-43bf-4160-b847-0bff5ae3d195"/>
+				<textElement verticalAlignment="Top">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[战胜同规模比例]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

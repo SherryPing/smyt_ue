@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_performance_risk" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="41b04037-0678-4613-b945-66d248fb3eaa">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="212"/>
+	<subDataset name="riskData" uuid="74d04c63-f334-4b19-8426-58644d925c26">
+		<queryString language="SQL">
+			<![CDATA[select * from return_data where fund_id="JR087571" and type="risk";]]>
+		</queryString>
+		<field name="bm" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fund" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="pe" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="row_name" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="type" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fund_id" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="create_at" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JR087571"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://file.fofpower.com/upload/2017-10-20/"+$P{FUND_ID} +"/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info limit 1;]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="20" y="4" width="507" height="90" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="fb7e4dc8-9ae6-4d62-9a7f-914680856644"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="288" y="30" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="86636779-4097-45eb-9483-cad981febf51">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[风险价值：基金在一定的时间（比如 1日、 5 日、 20 日）内，在一定的置信度(比如 95%或 99%)下，投资者最大的期望损失]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="36" y="38" width="4" height="4" forecolor="#0099CC" uuid="0f3d4dfc-4ea9-483b-8b9a-a3d2b2952400"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="49" y="30" width="213" height="32" forecolor="#666666" uuid="3d5a7794-7627-423e-9644-08c7572d7f4a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年化波动率：把不同周期的波动率进行年化，在进行基金评价时更具有可比性]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="275" y="38" width="4" height="4" forecolor="#0099CC" uuid="8551acf9-1028-4617-888f-5c67be78a740"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement mode="Transparent" x="32" y="9" width="469" height="21" forecolor="#666666" backcolor="#FFFFFF" uuid="40506260-9159-4cb8-8f17-a76aa09af2e6">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[风险指标]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="49" y="62" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="663ea6fd-fdd6-4c51-800c-0944c4c0c7d4">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[最大回撤：基金在统计区间内的任一历史时点起，复权累计净值走到最低点时收益率回撤幅度的最大值]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="36" y="69" width="4" height="4" forecolor="#0099CC" uuid="9670654b-aab4-4cf4-9193-48b89ee5939d"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+		</band>
+	</title>
+	<detail>
+		<band height="200">
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="20" y="39" width="515" height="146" uuid="2c90740a-d686-4fea-9cb2-84173f266e1b"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"dynamic_retracement.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="13" width="100" height="20" uuid="e17974f2-f276-4d24-9bb4-66dbcd655164">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[风险指标表现]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="33" width="75" height="1" uuid="0a946ad4-1b3e-4d06-a630-aa1387b917c9"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="200">
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="270" y="11" width="263" height="179" uuid="95bf0f68-4c0a-4cce-85d8-d4c9636b1310"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"risk_contrast.png"]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement x="26" y="31" width="240" height="142" uuid="6240aae6-ac6e-43d1-bf5a-8e52a77d8cf2"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TYPE">
+					<subreportParameterExpression><![CDATA["risk"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="COLUMN">
+					<subreportParameterExpression><![CDATA["TYPE"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_performance_table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

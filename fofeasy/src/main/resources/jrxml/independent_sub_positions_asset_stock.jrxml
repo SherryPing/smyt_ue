@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_asset_stock" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9721a512-9e61-4876-b3fe-11859aacd3a2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FUND_ID" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from ireport_stock_turnover WHERE fund_id = $P{FUND_ID}]]>
+	</queryString>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="turnover_rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="average_turnover_rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="static_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="update_time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="25" y="16" width="149" height="23" uuid="c6556d85-b475-4257-b005-2bdaeecd7953"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[行业分析]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="11" y="23" width="5" height="5" forecolor="#FFCC00" backcolor="#FFCC00" uuid="89666944-e7f4-4991-96c9-75fa639d0edb"/>
+			</ellipse>
+			<subreport runToBottom="true">
+				<reportElement x="0" y="50" width="555" height="50" uuid="3bbf2e27-e1f3-4e45-b0be-665ec3b303d7"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_stock_industry.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100">
+			<ellipse>
+				<reportElement x="11" y="23" width="5" height="5" forecolor="#FFCC00" backcolor="#FFCC00" uuid="2b3e6abb-345b-479e-bfe4-2274bbd437b1"/>
+			</ellipse>
+			<staticText>
+				<reportElement x="25" y="14" width="149" height="23" uuid="770b3a13-8569-4285-83a8-1119587f91d7"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[市值分析]]></text>
+			</staticText>
+			<subreport runToBottom="true">
+				<reportElement x="0" y="50" width="555" height="50" uuid="71ffb91b-af19-4cc6-9ef8-5668369e068c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_stock_market.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="100">
+			<staticText>
+				<reportElement x="25" y="14" width="149" height="23" uuid="71665beb-7d0a-4422-a55d-d93b498bc839"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[股票分析]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="11" y="23" width="5" height="5" forecolor="#FFCC00" backcolor="#FFCC00" uuid="dd4ee409-01d2-47c9-8d59-c82556b22fed"/>
+			</ellipse>
+			<subreport runToBottom="false">
+				<reportElement x="0" y="50" width="555" height="50" uuid="d6010981-ce58-4b7d-a26e-c130a2ef0829"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_stock_stock.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="215">
+			<line>
+				<reportElement x="20" y="21" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="3e70a0c7-9131-4c2d-ab43-02a55eb92af6"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="30" y="23" width="104" height="18" uuid="77667a0f-d533-494c-ae11-295817f3b71b"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[交易行为分析]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="22" y="46" width="240" height="146" uuid="e60f0c15-04c5-4552-a51c-52e5a5e1650e"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_stock_stock_table2.jasper"]]></subreportExpression>
+			</subreport>
+			<image onErrorType="Blank">
+				<reportElement x="286" y="46" width="20" height="20" uuid="62f3addc-5013-4fb7-9b7f-e04d6f43a101"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"images\\Calculator.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="313" y="49" width="104" height="18" uuid="322c9d14-2a65-425e-918d-cab5a601f557"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[私募云通计算]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="101" width="47" height="15" uuid="5a658fec-414a-4082-83b0-02bb93934d13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[产品换手率]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="101" width="35" height="15" uuid="846baeac-e396-47fe-9320-a945ac637071"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日换手率]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="376" y="100" width="41" height="17" forecolor="#FFFFFF" backcolor="#FF0000" uuid="e468b721-815e-43d7-a1e7-144e21a06c75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turnover_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="472" y="99" width="41" height="17" forecolor="#FFFFFF" backcolor="#FF0000" uuid="7b542875-7328-4263-bcf2-28ebdee144d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{average_turnover_rate}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="288" y="129" width="237" height="57" backcolor="#EFF0F4" uuid="259b361e-58fd-41d9-83ab-5f9da0fc1a55"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="295" y="129" width="100" height="15" uuid="e856ef18-77b5-46f8-bb94-4db4c7ea0faa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[信号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="144" width="228" height="12" uuid="17699cd2-038d-4682-8b5d-26239eda7d34"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[交易当日对应收盘均价超前一交易日收盘均价，当日为信号日。如：5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="156" width="228" height="12" uuid="aa3f668a-5965-4f13-8cb8-bb561700d892"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[均价，5日卖出信号即交易当日的5日收盘均价低于前一交易日的5日收]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="168" width="228" height="12" uuid="06516176-0408-454d-8ae7-ad0a0752aabf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[盘均价。趋势买入（卖出）：买入（卖出）交易发生在信号日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="77" width="15" height="15" uuid="96d6a0b5-d672-4b49-b116-17dff9436011"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[在]]></text>
+			</staticText>
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="341" y="78" width="48" height="15" uuid="8a8d45e2-346f-459b-837b-46fa353a9ce0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{static_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="391" y="77" width="10" height="15" uuid="fd8d7128-f0f3-43e1-b9de-a4de3e0b6ad2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[至]]></text>
+			</staticText>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="false">
+				<reportElement x="404" y="78" width="48" height="15" uuid="1ad9d1ea-c71d-4fb8-9e27-d68f3181dff4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{update_time}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="452" y="77" width="23" height="15" uuid="71eb06c3-82be-4bf4-8cde-8ddfdb6894a9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[期间]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

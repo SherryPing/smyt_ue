@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="investment_adviser_base" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="72e62065-a775-4638-91ab-577b53cba844">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1315"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Investment Adviser\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORG_ID" class="java.lang.String"/>
+	<parameter name="IMAGE_HOST" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from org_routine where org_id = $P{ORG_ID}]]>
+	</queryString>
+	<field name="org_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="year_return" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_return" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="years" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="reg_capital" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="real_capital_proportion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asset_scale_range" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="am_scale_range_consultant" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="is_qualified" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="reg_num" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="strategy_num" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="is_member" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_per_year" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="education" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="employeescale" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="found_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="investment_years" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="update_time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="80">
+			<staticText>
+				<reportElement x="36" y="21" width="158" height="30" forecolor="#3D92CF" uuid="54804a90-ba3c-4e80-b5ec-24ce42fb5870">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[业绩分析]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="21" width="1" height="40" uuid="f99c03ea-bad1-4557-a195-7391beb3e3d2"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#3D92CF"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="20" y="70" width="495" height="1" uuid="7d1a4ebd-989c-4de1-beae-e18bd369383c"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<ellipse>
+				<reportElement x="20" y="21" width="4" height="4" forecolor="#EA9B15" uuid="27992e5b-c915-4479-8ff3-6f473db2d446"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="36" y="14" width="100" height="20" uuid="41ec5f51-850d-4917-9207-eafddfbe92a0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[收益风险比]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="40" width="555" height="50" uuid="eb25ad51-c612-4214-a446-31f6e09e9daa"/>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORG_ID">
+					<subreportParameterExpression><![CDATA[$P{ORG_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "investment_adviser_performance_risk.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="180">
+			<staticText>
+				<reportElement x="35" y="15" width="100" height="20" uuid="29c5877a-db70-4559-8991-038a7a73b766">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[运营能力]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="19" y="22" width="4" height="4" forecolor="#EA9B15" uuid="2c687ff2-9ebb-4149-90fc-f7384fa99ef8"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<textField pattern="#,##0.0000%" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="148" y="49" width="101" height="20" uuid="5cea30c0-a714-4085-a59a-8224b7f70e6a">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year_return} ==null?"--":$F{year_return}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="366" y="72" width="131" height="20" uuid="aace6532-8dd0-4ccc-97d5-b0c9ab792395">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asset_scale_range}==null?"--":$F{asset_scale_range}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="42" y="95" width="85" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="d9ff5884-ada1-4592-bd87-5ee1a951885f"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[注册资本（万元）:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="49" width="95" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="dfee24a7-83e0-4edf-9099-1593c682bc67"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[成立以来累计收益率:]]></text>
+			</staticText>
+			<textField pattern="#,##0.0000%" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="396" y="49" width="101" height="20" uuid="e3e7ca46-b8c4-46d2-aa54-c3abde364dff">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_return} ==null?"--":$F{total_return}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="118" width="54" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="264d908b-6ede-42a8-83c0-00b48a6c5bf6"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[是否是会员:]]></text>
+			</staticText>
+			<textField pattern="###0.0" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="100" y="72" width="148" height="20" uuid="6354370e-7121-45ea-a0e0-66551f2c06b6">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{years} ==null?"--":$F{years}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="42" y="118" width="65" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="363eb2fd-5671-4aff-9e30-2593cc62ce05"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[投资策略数量:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="72" width="65" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="1e2e11a2-9512-4458-a014-63d5cd461c12"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[自主管理规模:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="95" width="65" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="4c6c610f-d2a4-458c-890a-7c8e1b87f0cd"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[顾问管理规模:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="42" y="49" width="94" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="fea85fac-6d02-4c3e-8316-2aad675f5933"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[今年以来累计收益率:]]></text>
+			</staticText>
+			<textField pattern="###0.0000" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="355" y="118" width="142" height="20" uuid="f27cff39-da42-414b-8d61-5fb6a1c20afb">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{is_member}==null?"--":$F{is_member}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0000" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="366" y="95" width="131" height="20" uuid="36ecb803-0afa-4e53-87cd-be25d0b457f3">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{am_scale_range_consultant}==null?"--":$F{am_scale_range_consultant}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="119" y="118" width="130" height="20" uuid="64152bea-2dae-466a-9021-030f9770e7f6">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{strategy_num}==null?"--":$F{strategy_num}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="42" y="72" width="46" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="ad74735b-940a-43dd-ae3f-fbd20b16019a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[成立年限:]]></text>
+			</staticText>
+			<textField pattern="###0" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="138" y="95" width="110" height="20" uuid="1e9daf2d-5cd8-474c-9e0a-63e9ef6ff5dc">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reg_capital}==null?"--":$F{reg_capital}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="172" y="141" width="76" height="20" uuid="c8bd2335-a65b-4a72-910d-e282e66ba4a6">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fund_per_year}==null?"--":$F{fund_per_year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="42" y="141" width="119" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="97538772-1361-4186-b2d7-9c537fa487d1"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[年均产品发行数（只/年）:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="141" width="44" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="c76e9f8e-951d-4de1-8941-6e0a61763085"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[员工数量:]]></text>
+			</staticText>
+			<textField pattern="###0.0000" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="345" y="141" width="152" height="20" uuid="d1cc8158-7a59-4b0d-8fe7-9030f9c41322">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeescale}==null?"--":$F{employeescale}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="105">
+			<staticText>
+				<reportElement x="35" y="15" width="100" height="20" uuid="1756d058-0a3f-40a9-975d-8e707ee49775">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[盈利能力]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="19" y="22" width="4" height="4" forecolor="#EA9B15" uuid="d2c28c61-5f83-4b97-b875-580cd7368049"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<subreport>
+				<reportElement x="0" y="50" width="555" height="50" uuid="d94221a5-ee55-48a5-9bf9-7eb7fdf4de26"/>
+				<subreportParameter name="TYPE">
+					<subreportParameterExpression><![CDATA["return"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORG_ID">
+					<subreportParameterExpression><![CDATA[$P{ORG_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "investment_adviser_performance_table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="190">
+			<image onErrorType="Blank">
+				<reportElement x="27" y="5" width="500" height="185" uuid="80af8b0a-ff7f-4f71-82dd-1c92c72c44c5"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"org_indicator_return.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="105">
+			<ellipse>
+				<reportElement x="19" y="22" width="4" height="4" forecolor="#EA9B15" uuid="bc6f1b92-c06a-46a3-96ea-c58a0beb75c5"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="35" y="15" width="100" height="20" uuid="62d5fc31-3353-4566-aeb0-4c752efa2a76">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[风控能力]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="50" width="555" height="50" uuid="ab231a3b-b53b-4ae9-972b-7b7cd3fa9b1a"/>
+				<subreportParameter name="TYPE">
+					<subreportParameterExpression><![CDATA["risk"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ORG_ID">
+					<subreportParameterExpression><![CDATA[$P{ORG_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "investment_adviser_performance_table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="190">
+			<image onErrorType="Blank">
+				<reportElement x="27" y="5" width="500" height="185" uuid="9ca5c058-fb24-4998-b29a-bf4e460490ff"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"org_indicator_risk.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="105">
+			<ellipse>
+				<reportElement x="19" y="22" width="4" height="4" forecolor="#EA9B15" uuid="3bc00ba8-ddb6-442c-a69d-0d66c0811803"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="35" y="15" width="100" height="20" uuid="4ac81f72-30b5-4f38-927d-e18fc15d902a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[投研能力]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="50" width="555" height="50" uuid="4e5a4ace-159c-4a78-8163-ad3acbb10287"/>
+				<subreportParameter name="ORG_ID">
+					<subreportParameterExpression><![CDATA[$P{ORG_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "investment_adviser_performance_table1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="190">
+			<image onErrorType="Blank">
+				<reportElement x="27" y="5" width="500" height="185" uuid="6c691a6e-db7c-4754-bede-19bdc3d22efe"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"org_research.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

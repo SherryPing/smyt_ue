@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_asset_futures" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="523153e1-1b94-4cc2-a5d0-36ddf377c0c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["7FC709D949C10FB0D6072AC2205C7A5A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://192.168.1.111:810/upload/2017-11-07/"+$P{FUND_ID}+"/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info LIMIT 1]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<ellipse>
+				<reportElement x="14" y="21" width="5" height="5" forecolor="#FFCC00" backcolor="#FFCC00" uuid="4e64ef15-f52b-455e-b174-7cb6d3c5d076"/>
+			</ellipse>
+			<staticText>
+				<reportElement x="28" y="14" width="149" height="23" uuid="37b8afb0-9af9-4fca-a60b-e93757d7677a"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[账户概况]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="40" width="555" height="50" uuid="3d33c0b8-b69f-450f-9a80-4c6fb3773457"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_asset.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="90">
+			<staticText>
+				<reportElement x="30" y="14" width="149" height="23" uuid="41c6f7ee-5ecf-4b7e-98d6-bd93f0148ad2"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[头寸分析]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="16" y="21" width="5" height="5" forecolor="#FFCC00" backcolor="#FFCC00" uuid="9afc9781-e4f6-43fc-8df3-165153bfe41d"/>
+			</ellipse>
+			<subreport>
+				<reportElement x="0" y="40" width="555" height="50" uuid="74728ff0-750d-4d06-a59c-38c334dae4fa"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_HOST}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_positions.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="90">
+			<staticText>
+				<reportElement x="30" y="14" width="149" height="23" uuid="3c3077f0-7cc8-49f1-9dd3-d7b6a3196254"/>
+				<textElement>
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[品种分析]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="16" y="21" width="5" height="5" forecolor="#FFCC00" backcolor="#FFCC00" uuid="2294c93f-a619-425f-95ac-f8bb4c6d392f"/>
+			</ellipse>
+			<subreport>
+				<reportElement x="0" y="40" width="555" height="50" uuid="5e70c59c-b85e-4a64-8cd0-1a9860a51cf8"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_varieties.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

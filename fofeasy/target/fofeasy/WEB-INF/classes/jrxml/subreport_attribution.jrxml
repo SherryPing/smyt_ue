@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="master_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7a7fa17d-69f2-4146-a26d-416e7b107e9d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\Works\\Git\\easy\\fofeasy\\src\\main\\resources\\jrxml\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Image\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fund_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JGH005"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select interval_max, interval_min from ireport_attribution_summary where fund_id=$P{fund_id} limit 1;]]>
+	</queryString>
+	<field name="interval_max" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interval_min" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120">
+			<staticText>
+				<reportElement x="41" y="15" width="158" height="30" forecolor="#3D92CF" uuid="f6e9c30e-6041-4793-8c84-73f9ff73857d">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[归因分析]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="45" width="259" height="30" forecolor="#999999" uuid="bd66def9-c79f-44b2-851d-6d6e659eda9b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Attribution Analysis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="87" width="100" height="20" uuid="515f6761-561f-49bf-8ea6-c831fecd6e76">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[资产账户]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="23" width="1" height="40" uuid="555e5bf9-b1cb-423e-b77b-5e91866d7f5b"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#3D92CF"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="30" y="72" width="495" height="1" uuid="a80451ef-1864-4e1a-bb70-a13f86648c6b"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<ellipse>
+				<reportElement x="30" y="95" width="4" height="4" forecolor="#EA9B15" uuid="a8e75cba-ca9e-4f2b-be38-aed3ea578912"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement x="161" y="92" width="354" height="20" uuid="6523517d-de0c-4664-9f68-6d3fd9fa7880"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["统计区间: " + $F{interval_min} +" ~ " + $F{interval_max}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="50">
+			<subreport isUsingCache="false" runToBottom="false">
+				<reportElement x="20" y="0" width="515" height="50" uuid="36ae557c-8c91-4303-8182-65ddab5a9b2b"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ASSET_TPYE">
+					<subreportParameterExpression><![CDATA["asset"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_attribution_asset.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="151">
+			<subreport isUsingCache="false" runToBottom="true">
+				<reportElement x="20" y="101" width="515" height="50" uuid="94be2172-a707-4db0-bdb7-b8b486fd4e3d"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ASSET_TPYE">
+					<subreportParameterExpression><![CDATA["asset"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_attribution_asset_img.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="20" y="0" width="515" height="101" forecolor="#999999" uuid="2eca64f4-0e60-41c6-b81a-07a54a1de750">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[注：
+1）“其他”指基金中除股票和期货之外的资产（包含现金管理、债券等）。
+2）归因分析采用Brinson模型，其中单期归因的权重是按照上区间末的资产权重，多期归因的权重每期都会根据实际持仓数据重新归一化。因此对于可以获取日度持仓数据的产品，建议使用日频持仓数据进行多期业绩归因。
+3）多期归因汇总表中基金数据若有缺失，可能导致此处“总计收益率”和收益指标模块的“累计收益率”有差异；
+4）由于“权重”是每期持仓的平均权重，大类资产“收益率”是复利计算的区间收益率，从而多期归因中，按“权重”方式加权的收益率不一定等于“总计收益率”。
+]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<subreport runToBottom="true">
+				<reportElement x="20" y="60" width="515" height="40" uuid="f0eebc48-dee3-4f8f-a8a0-8edb5a75729f"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ASSET_TPYE">
+					<subreportParameterExpression><![CDATA["stock"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_attribution_asset.jasper"]]></subreportExpression>
+			</subreport>
+			<ellipse>
+				<reportElement x="30" y="37" width="4" height="4" forecolor="#EA9B15" uuid="50efacf0-bb0e-4b61-9152-735d7c175670"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="46" y="30" width="100" height="20" uuid="c75fb17d-b85a-4716-b3e3-6c0ba24c8f0c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[股票资产]]></text>
+			</staticText>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement x="161" y="30" width="354" height="20" uuid="fa63ebb8-e900-4fd8-8b03-e6c5b9514cf2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["统计区间: " + $F{interval_min} +" ~ " + $F{interval_max}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="135">
+			<subreport>
+				<reportElement x="20" y="85" width="515" height="50" uuid="d24dbeea-a2b8-4a9e-8fad-b463c8fc2bda"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ASSET_TPYE">
+					<subreportParameterExpression><![CDATA["stock"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_attribution_asset_img.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="20" y="0" width="515" height="85" forecolor="#999999" uuid="7b82fdfb-f94c-44ef-8722-fc43529f51b0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[注：
+1）归因分析采用Brinson模型，其中单期归因的权重是按照上区间末的资产权重，多期归因的权重每期都会根据实际持仓数据重新归一化。因此对于可以获取日度持仓数据的产品，建议使用日频持仓数据进行多期业绩归因。
+2）多期归因汇总表中基金数据若有缺失，可能导致此处“总计收益率”和收益指标模块的“累计收益率”有差异；
+3）由于“权重”是每期持仓的平均权重，行业“收益率”是复利计算的区间收益率，从而多期归因中，按“权重”方式加权的收益率不一定等于“总计收益率”。
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

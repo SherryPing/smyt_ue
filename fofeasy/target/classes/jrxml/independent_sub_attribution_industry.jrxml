@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_attribution_industry" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e9415895-c1eb-4f5d-be55-e85e89747f2f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="295"/>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Image\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ASSET_TPYE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["asset"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FUND_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from ireport_attribution_summary where type=$P{ASSET_TPYE} and fund_id=$P{FUND_ID};]]>
+	</queryString>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="return" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bm_return" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ex_return" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="allocation" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="selection" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interaction" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="benchmark" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="static_date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interval_min" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interval_max" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="update_time" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140">
+			<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement x="195" y="60" width="48" height="20" uuid="ad98f7f0-aa78-4dc0-9b2b-b633d2166518"/>
+				<textFieldExpression><![CDATA[$F{return}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="15" width="100" height="20" forecolor="#3333FF" uuid="fde5dc72-8ca0-4f86-81e3-445936232f31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[超额收益]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="15" width="100" height="20" forecolor="#3333FF" uuid="6ebfbec2-eaeb-4fd3-8fc5-8d59ad725ef8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[归因分析]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="60" width="91" height="20" uuid="4bb7df2b-3a0f-45d3-8864-a7c45a1aaa02"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[产品收益]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="80" width="91" height="20" uuid="6862f50b-c8d1-452f-884f-2731609cca4c"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[同期沪深300收益]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="100" width="91" height="20" uuid="43fa9e53-20e9-49ca-952a-8958f7e943ca"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[产品超额收益]]></text>
+			</staticText>
+			<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement x="195" y="80" width="48" height="20" uuid="d826ee7c-ef54-4a2a-83be-5e69d498ee92"/>
+				<textFieldExpression><![CDATA[$F{bm_return}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement x="195" y="100" width="48" height="20" uuid="e2b1edcf-ec3a-4874-ac10-3aa929730cf4"/>
+				<textFieldExpression><![CDATA[$F{ex_return}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="278" y="60" width="91" height="20" uuid="20e238db-a324-469a-8633-f6915111f12b"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[行业配置]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="100" width="91" height="20" uuid="1b10d009-bbf1-4dd0-945d-cadd166879f8"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[交互作用]]></text>
+			</staticText>
+			<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement x="427" y="60" width="48" height="20" uuid="859e5d18-1a9a-4a10-a641-8835b669413b"/>
+				<textFieldExpression><![CDATA[$F{allocation}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement x="427" y="80" width="48" height="20" uuid="c7abaa01-05dc-47af-be39-69d044f314ea"/>
+				<textFieldExpression><![CDATA[$F{selection}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+				<reportElement x="427" y="100" width="48" height="20" uuid="2c63a94d-7f9f-4c57-b68c-b192442a4f09"/>
+				<textFieldExpression><![CDATA[$F{interaction}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="48" y="48" width="185" height="1" forecolor="#666666" uuid="e7b84adb-1b30-4b29-9516-6445a05e0e60"/>
+			</line>
+			<line>
+				<reportElement x="48" y="132" width="185" height="1" forecolor="#666666" uuid="904b6056-7eda-47e4-a017-eea4ed70091a"/>
+			</line>
+			<line>
+				<reportElement x="278" y="49" width="185" height="1" forecolor="#666666" uuid="3c36bc8b-ebca-4a3a-b080-f8167833e082"/>
+			</line>
+			<line>
+				<reportElement x="278" y="131" width="185" height="1" forecolor="#666666" uuid="6de5e6a8-e050-4034-ad51-c68cd191e043"/>
+			</line>
+			<textField>
+				<reportElement x="278" y="80" width="91" height="20" uuid="56c3667b-4130-41d4-a25c-763f80a73ce9"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{type}.equals("asset")) ? "证券选择" : "个股选择"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="200">
+			<staticText>
+				<reportElement x="12" y="10" width="415" height="20" forecolor="#2E67B8" uuid="fdc86e6c-4eb3-476c-a602-1e9df7f8b358"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[归因贡献比较]]></text>
+			</staticText>
+			<image hAlign="Left" vAlign="Bottom" onErrorType="Blank">
+				<reportElement x="20" y="40" width="200" height="150" uuid="4bf6a2de-bfbc-4076-9989-6b7782ea9501"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "attribution_"+ $P{ASSET_TPYE} +"_summary.png"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Bottom" onErrorType="Blank">
+				<reportElement x="220" y="40" width="300" height="150" uuid="e8551a96-4bef-4aac-8780-fe12ed15898f"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "attribution_ex_return_"+ $P{ASSET_TPYE} +".png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="215">
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Bottom" onErrorType="Blank">
+				<reportElement x="19" y="35" width="501" height="180" uuid="610ee81f-a4f9-4878-b673-9892e3b2eea2"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "attribution_position_control_"+ $P{ASSET_TPYE} +".png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="12" y="10" width="445" height="20" forecolor="#2E67B8" uuid="51206806-8b05-4c07-b3e5-495a2ae7cbfc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[仓位控制]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

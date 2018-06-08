@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_asset_futures_asset" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ec3b2691-7d06-4290-97b9-998fcf6f25f4">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="252"/>
+	<parameter name="FUND_ID" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from ireport_future_static LIMIT 1]]>
+	</queryString>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="accumulae_return" class="java.lang.Double">
+		<fieldDescription><![CDATA[累计收益率]]></fieldDescription>
+	</field>
+	<field name="annual_std" class="java.lang.Double">
+		<fieldDescription><![CDATA[年化波动率]]></fieldDescription>
+	</field>
+	<field name="downside_std" class="java.lang.Double">
+		<fieldDescription><![CDATA[年化下行标准差]]></fieldDescription>
+	</field>
+	<field name="max_retracement" class="java.lang.Double">
+		<fieldDescription><![CDATA[最大回撤]]></fieldDescription>
+	</field>
+	<field name="mdd_date" class="java.lang.String">
+		<fieldDescription><![CDATA[发生时间]]></fieldDescription>
+	</field>
+	<field name="mdd_formation" class="java.lang.Long">
+		<fieldDescription><![CDATA[形成期]]></fieldDescription>
+	</field>
+	<field name="return_risk_ratio" class="java.lang.Double">
+		<fieldDescription><![CDATA[收益风险比]]></fieldDescription>
+	</field>
+	<field name="sharp" class="java.lang.Double">
+		<fieldDescription><![CDATA[年化夏普比]]></fieldDescription>
+	</field>
+	<field name="sortino" class="java.lang.String">
+		<fieldDescription><![CDATA[Sortino比率]]></fieldDescription>
+	</field>
+	<field name="interval_min" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interval_max" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="update_time" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="230">
+			<textField pattern="###0.00">
+				<reportElement x="355" y="130" width="64" height="15" uuid="c8d9dbed-6f0b-4300-b66a-27b309cd12ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sortino} == null ? "--":$F{sortino}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="21" y="48" width="237" height="170" uuid="10a10a87-1390-48e4-8205-dd646600b809"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_nav_analysis.png"]]></imageExpression>
+			</image>
+			<textField pattern="###0.00">
+				<reportElement x="274" y="130" width="64" height="15" uuid="9facadfe-064c-406a-a6b9-f58db91e9c16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{downside_std}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="435" y="130" width="64" height="15" uuid="49f9cc6a-fc66-432c-9c76-8023b9c5c32c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sharp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="175" width="64" height="15" uuid="9a597a9c-a0ee-4da2-b597-7c0afd5af5ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[最大回撤]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="113" width="64" height="15" uuid="53832b10-35ec-42dd-933d-bec2601ed3df"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年化夏普比]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="113" width="64" height="15" uuid="556672cb-5cba-4f06-bd5d-23fdd1959125"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Sortino比率]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="15" width="104" height="23" uuid="a163c758-8eb0-4258-8a3f-3203098fc215"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[账户净值分析]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="355" y="192" width="64" height="15" uuid="47617e1c-0ac1-451e-acd8-86d637544a7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mdd_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="274" y="192" width="64" height="15" uuid="246f685d-ba0b-40f0-84b8-81a8b7c5d35c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{max_retracement}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="50" width="64" height="15" uuid="68453d38-a50a-4067-82a9-e3fae38772ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[累计收益率]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="12" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="67a58e39-2b98-45b6-98a6-ca1f94b1cda5"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="435" y="175" width="64" height="15" uuid="574182b0-2978-4b83-8036-ef19f8e745a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[形成期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="113" width="74" height="15" uuid="76b83f42-becc-4461-b10f-cc849288cf42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年化下行标准差	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="175" width="64" height="15" uuid="3fec7cbd-c2b0-4119-83f7-56dd14d8ebc8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[发生时间]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="274" y="67" width="64" height="15" uuid="9aa51964-6719-4e5a-a593-48d9159be98b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{accumulae_return}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="50" width="64" height="15" uuid="85a48f92-246b-4568-b42c-3c81f834d629"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[收益风险比]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="435" y="67" width="64" height="15" uuid="a0f75eec-3850-483d-842a-cad2f76fe1ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{annual_std}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="192" width="64" height="15" uuid="7e0c40b7-02ab-4310-88ec-02e113305b77"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mdd_formation}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="50" width="64" height="15" uuid="3445788a-53bb-4bf2-a8ea-9c6c569dbf17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[年华波动率]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="355" y="67" width="64" height="15" uuid="61902d6e-f357-45a0-aaf4-b3f68122b336"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{return_risk_ratio}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="230">
+			<image onErrorType="Blank">
+				<reportElement x="30" y="35" width="480" height="185" uuid="6113e29b-e767-429a-9a38-ab431593a1b6"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_circulation.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="20" y="11" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="fd18e553-553a-4c2d-adf8-bebc249d5d2d"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="30" y="14" width="104" height="23" uuid="76a40771-f546-46a0-98c0-c7ba54bdd0ad"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[账户出入金分析]]></text>
+			</staticText>
+		</band>
+		<band height="50">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="50" uuid="efe5f480-1649-461a-8f9b-a58e5ac29551"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_asset_futures_asset_table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="230">
+			<image onErrorType="Blank">
+				<reportElement x="30" y="35" width="525" height="185" uuid="d9b285ab-6036-4eb6-a5c6-99c1e6adde96"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST} + "future_overnight_risk.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="30" y="14" width="104" height="23" uuid="4e619137-7ba7-4180-8354-9416ca022a01"/>
+				<textElement>
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[隔夜风险]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="11" width="1" height="20" forecolor="#4FA5D6" backcolor="#4FA5D6" uuid="aa052328-7be8-4d82-b0f6-b4dc027e7469"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

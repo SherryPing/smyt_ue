@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="easy_sub_performance_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="41b04037-0678-4613-b945-66d248fb3eaa">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="riskData" uuid="74d04c63-f334-4b19-8426-58644d925c26">
+		<queryString language="SQL">
+			<![CDATA[select * from return_data where fund_id="JR087571" and type="risk";]]>
+		</queryString>
+		<field name="bm" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fund" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="pe" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="row_name" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="type" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fund_id" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="create_at" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://192.168.1.111/upload/2017-07-17/JR087571/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JR087571"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ireport\\jrxml_new\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info where fund_id=$P{FUND_ID};]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="21" y="36" width="518" height="90" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="fb7e4dc8-9ae6-4d62-9a7f-914680856644"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="62" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="86636779-4097-45eb-9483-cad981febf51">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[规模因子：上市公司规模不同导致的收益率差异]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="94" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="29811530-27c1-46c2-9063-2f2b0d53ba0f">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[价值因子：上市公司账面市值比不同导致的收益率差异]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="37" y="67" width="4" height="4" forecolor="#0099CC" uuid="0f3d4dfc-4ea9-483b-8b9a-a3d2b2952400"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="50" y="62" width="213" height="32" forecolor="#666666" uuid="3d5a7794-7627-423e-9644-08c7572d7f4a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[alpha：投资经理的择股能力，也叫特异因子，即不能被以下因子所解释的部分]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="276" y="67" width="4" height="4" forecolor="#0099CC" uuid="8551acf9-1028-4617-888f-5c67be78a740"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement mode="Transparent" x="33" y="41" width="469" height="21" forecolor="#666666" backcolor="#FFFFFF" uuid="40506260-9159-4cb8-8f17-a76aa09af2e6">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[外部评价指标]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="50" y="94" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="663ea6fd-fdd6-4c51-800c-0944c4c0c7d4">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[市场因子：市场整体波动导致的收益率差异，由市场收益率减无风险利率算出]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="37" y="98" width="4" height="4" forecolor="#0099CC" uuid="9670654b-aab4-4cf4-9193-48b89ee5939d"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="276" y="99" width="4" height="4" forecolor="#0099CC" uuid="0efb00c7-04b2-4470-8447-da81f37d3dc0"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="21" y="2" width="158" height="30" forecolor="#000000" uuid="a66e86ce-3f9f-4fbe-aa4f-c7b89e16022b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[归因分析]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="220">
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="31" y="29" width="245" height="142" uuid="d7ab4e89-c8b4-4413-87e2-71f852b699ac"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"attribution_income_compose.png"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="290" y="29" width="245" height="142" uuid="26509cab-b14f-424f-a347-8e7cf1368159"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"attribution_spider.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="294" y="0" width="189" height="20" uuid="7647c88d-4180-4718-8fb1-68caa9f5e139">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[风格因子时序变化——收益归因]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="189" height="20" uuid="2578930f-4eec-44e2-a8d4-6757bd5f095b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[风格因子贡献——收益归因]]></text>
+			</staticText>
+			<line>
+				<reportElement x="294" y="24" width="156" height="1" uuid="8973fbb3-91ce-4e67-968e-3d2b1cef240e"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="30" y="24" width="140" height="1" uuid="9b6cf883-bd13-4076-bff5-b6c7a2a0bdd4"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

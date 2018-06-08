@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="master_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7a7fa17d-69f2-4146-a26d-416e7b107e9d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ireport\\jrxml_new\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Image\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fund_id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select interval_max, interval_min from ireport_asset where fund_id=$P{fund_id} limit 1;]]>
+	</queryString>
+	<field name="interval_max" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="interval_min" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120">
+			<staticText>
+				<reportElement x="41" y="15" width="158" height="30" forecolor="#3D92CF" uuid="f6e9c30e-6041-4793-8c84-73f9ff73857d">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[持仓分析]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="45" width="259" height="30" forecolor="#999999" uuid="bd66def9-c79f-44b2-851d-6d6e659eda9b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Position Analysis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="87" width="100" height="20" uuid="515f6761-561f-49bf-8ea6-c831fecd6e76">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[资产账户]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="23" width="1" height="40" uuid="555e5bf9-b1cb-423e-b77b-5e91866d7f5b"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#3D92CF"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="30" y="72" width="495" height="1" uuid="a80451ef-1864-4e1a-bb70-a13f86648c6b"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<ellipse>
+				<reportElement x="30" y="95" width="4" height="4" forecolor="#EA9B15" uuid="a8e75cba-ca9e-4f2b-be38-aed3ea578912"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement x="161" y="92" width="354" height="20" uuid="6523517d-de0c-4664-9f68-6d3fd9fa7880"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["统计日期:"+$F{interval_max} + "    统计区间: " + $F{interval_min} +" ~ " + $F{interval_max}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="50">
+			<subreport>
+				<reportElement x="20" y="0" width="515" height="50" uuid="36ae557c-8c91-4303-8182-65ddab5a9b2b"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_position_asset.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<subreport>
+				<reportElement x="20" y="0" width="515" height="50" uuid="94be2172-a707-4db0-bdb7-b8b486fd4e3d"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_position_stock_industry.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<subreport runToBottom="true">
+				<reportElement x="20" y="0" width="515" height="50" uuid="f0eebc48-dee3-4f8f-a8a0-8edb5a75729f"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_position_stock_marketvalue.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<subreport>
+				<reportElement x="20" y="0" width="515" height="50" uuid="d24dbeea-a2b8-4a9e-8fad-b463c8fc2bda"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_position_stock_analysis.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

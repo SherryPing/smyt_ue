@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="master_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7a7fa17d-69f2-4146-a26d-416e7b107e9d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ireport\\jrxml_new\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info limit 1;]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="600">
+			<staticText>
+				<reportElement x="20" y="269" width="513" height="31" forecolor="#000000" uuid="9a5ec4c1-35a2-40c8-8a5c-011ac4187ada"/>
+				<textElement>
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[以FOF机构投资人的需求为导向，基于CHFDB海量数据、运用互联网数据可视化技术，为FOF机构投资人提供高效的FOF管理工具。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="507" width="345" height="28" forecolor="#000000" uuid="2099420d-394d-4fa7-a56d-f2a6d3ac5485"/>
+				<textElement>
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[联系人：    徐经理  135-2488-6248]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="316" width="345" height="28" forecolor="#000000" uuid="2515b976-5a5a-458f-86ad-00b9fbe984fc"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[FOF Power]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="20" y="63" width="515" height="42" uuid="ba21d526-b4a8-40ec-9f32-45315e295a5e">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["私募云通是中国私募证券投资基金大数据服务平台，致力于提供客观、准确、完备且及时的私募证券投资基金相关数据、咨询服务，帮助机构投资者与投顾公司更高效、顺畅地建立合作关系。"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="175" width="513" height="51" forecolor="#000000" uuid="f48f5b6a-a639-476f-84bb-e519815c6b63"/>
+				<textElement>
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[该数据库包含了基金产品信息库、投顾公司信息库与投资经理信息库三个子库。收录了通过信托平台发行的私募证券投资信托计划产品、以有限合伙制企业形式或信托与有限合伙制相结合的形式发行的私募证券投资基金、券商集合理财产品、专户理财产品、单账户证券及期货等近14万只基金产品的相关信息。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="479" width="345" height="28" forecolor="#000000" uuid="b2c9b9a4-d39e-437f-8707-8242e140d52d"/>
+				<textElement>
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[公司电话： 021-6859-1716]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="242" width="345" height="28" forecolor="#000000" uuid="c446c011-c797-489a-8645-696fd99e60c7"/>
+				<textElement>
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[WEB应用——FOF EASY]]></text>
+			</staticText>
+			<line>
+				<reportElement x="22" y="466" width="500" height="1" uuid="6d7b613c-f546-4675-9386-63416c331005"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Dotted" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="438" width="218" height="28" forecolor="#006699" uuid="6b6228fa-0833-4910-a083-5e358b06cfb4"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[联系方式]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="105" width="218" height="28" forecolor="#006699" uuid="5a9d5631-b6f2-47c1-a508-ebc3a542f0ad"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[旗下产品]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="53" width="500" height="1" uuid="40e2c83b-c373-4a76-82de-df6b88b2f3b1"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Dotted" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="22" y="148" width="345" height="28" forecolor="#000000" uuid="c072e0a5-6193-465d-82bc-e7506c4471bf"/>
+				<textElement>
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[中国私募证券投资基金数据库（CHFDB）]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="132" width="500" height="1" uuid="48db0e94-52a9-4e0f-96ca-b9e44f37c131"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Dotted" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="344" width="513" height="51" forecolor="#000000" uuid="1df87298-7ec6-432f-832c-c48bf1738cc3"/>
+				<textElement>
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[FOF Power 是私募云通基于基金净值数据及持仓数据开发的私募基金账户业绩评估系统。FOF Power通过Brinson、Carino、Barra等专业先进的模型与内部、外部两套分析方法，多维度挖掘产品/投顾的交易特性，辅助用户进行母基金穿透分析、FOF子基金多维量化筛选、子基金产品绩效衡量、业绩归因和绩效评价。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="20" width="218" height="28" forecolor="#006699" uuid="dd53e3b3-7482-4a9d-a6a9-7f217157ea58"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[私募云通·通晓私募]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

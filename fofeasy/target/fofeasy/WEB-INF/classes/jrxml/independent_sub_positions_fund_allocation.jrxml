@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_positions_fund_allocation" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2290e963-9a2f-4a6b-9dec-aceb43a1affb">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="480"/>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["7FC709D949C10FB0D6072AC2205C7A5A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://192.168.1.111:810/upload/2017-10-25/"+$P{FUND_ID}+"/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info limit 1]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="50" uuid="b880d5b7-e3d2-4c13-8fc7-811c39c11da8"/>
+				<subreportParameter name="TYPE">
+					<subreportParameterExpression><![CDATA["fof_fund"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_positions_table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="220" splitType="Stretch">
+			<line>
+				<reportElement x="20" y="13" width="1" height="20" forecolor="#5AAAD8" backcolor="#5AAAD8" uuid="3e3c7e33-f91d-4edb-a2e7-2c5c004789a0"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="31" y="13" width="100" height="20" uuid="78caf6f8-3af3-4399-a43c-87e1fc35249d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[收益贡献占比]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="30" y="40" width="250" height="180" uuid="c69685b6-7ba7-4a93-9264-b46d440251a4"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"fof_fund_return.png"]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="280" y="40" width="250" height="180" uuid="3a1b4ba7-89ba-431e-8ff5-bcbcc5c90e52"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"fof_fund_asset.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="220">
+			<image onErrorType="Blank">
+				<reportElement x="30" y="21" width="250" height="180" uuid="2642f630-4f59-4556-adf6-38e0e28d4f44"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"fof_fund_var.png"]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="280" y="21" width="250" height="180" uuid="0124388a-e852-42cd-9d24-e09efc334b67"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"fof_fund_stdev.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="220">
+			<line>
+				<reportElement x="20" y="14" width="1" height="20" forecolor="#5AAAD8" backcolor="#5AAAD8" uuid="23f4f043-57c1-4ab0-b5c3-17ba511ea394"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="31" y="14" width="100" height="20" uuid="4f58dd1f-6fd2-4b36-8046-72727dbce7d7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[子基金组合时序图]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="21" y="45" width="500" height="175" uuid="d8afcd58-271e-462b-b33e-4dc51b3471a5"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"fof_fund_series.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

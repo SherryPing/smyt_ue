@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreport_revenue" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7a7fa17d-69f2-4146-a26d-416e7b107e9d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="483"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="ea7ef52f-59f5-48aa-8851-06a5bdc0f995">
+		<queryString language="SQL">
+			<![CDATA[select * from ireport_config where name='benchmark';]]>
+		</queryString>
+		<field name="name" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="value" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\Works\\Git\\easy\\fofeasy\\src\\main\\resources\\jrxml\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="static_date" class="java.lang.String"/>
+	<parameter name="fund_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA["S00001"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select value benchmark_count
+from ireport_config
+where  name='benchmark_count' limit 1;]]>
+	</queryString>
+	<field name="benchmark_count" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="150">
+			<staticText>
+				<reportElement x="41" y="15" width="158" height="30" forecolor="#3D92CF" uuid="f6e9c30e-6041-4793-8c84-73f9ff73857d">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[收益、风险指标]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="45" width="259" height="30" forecolor="#999999" uuid="bd66def9-c79f-44b2-851d-6d6e659eda9b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profitability and Risk Measures]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="110" width="100" height="20" uuid="515f6761-561f-49bf-8ea6-c831fecd6e76">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[收益指标]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="23" width="1" height="40" uuid="555e5bf9-b1cb-423e-b77b-5e91866d7f5b"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineColor="#3D92CF"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="30" y="72" width="495" height="1" uuid="a80451ef-1864-4e1a-bb70-a13f86648c6b"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<ellipse>
+				<reportElement x="30" y="118" width="4" height="4" forecolor="#EA9B15" uuid="a8e75cba-ca9e-4f2b-be38-aed3ea578912"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+		</band>
+	</title>
+	<detail>
+		<band height="50">
+			<subreport>
+				<reportElement x="20" y="0" width="515" height="50" uuid="11df9c90-c986-4edd-93ce-23e5099d30af"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Performance_Category">
+					<subreportParameterExpression><![CDATA["revenue"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_revenue" + String.valueOf($F{benchmark_count})  + ".jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="64">
+			<staticText>
+				<reportElement x="20" y="0" width="515" height="64" forecolor="#999999" uuid="affc37d3-d907-405b-bb02-c49c1e304ae1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[注：累计收益率=(区间截止日复权累计净值 - 区间起始日前一日的复权累计净值)/区间起始日前一日的复权累计净值*100%（当区间起始日前一日不是净值公布日时，从区间起始日前一日向前找到最近一个公布日的净值，当尾日不是净值公布日时，从尾日向前找到最近一个公布日的净值）
+年化采用复利形式，日频序列采用250天，周频序列采用52周，月频序列采用12月，下同。]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<staticText>
+				<reportElement x="41" y="21" width="100" height="20" uuid="ddd4cdc1-d1dd-4147-b119-98a4c4c7045c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[风险指标]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="25" y="29" width="4" height="4" forecolor="#EA9B15" uuid="39f8e2b3-d2f8-4360-bd56-301ff462f5cd"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<subreport runToBottom="true">
+				<reportElement x="20" y="50" width="515" height="50" uuid="803ed983-bbe4-43ea-ab25-98eb7d3237d0"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Performance_Category">
+					<subreportParameterExpression><![CDATA["risk"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_revenue" + String.valueOf($F{benchmark_count})  + ".jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="23">
+			<staticText>
+				<reportElement x="20" y="0" width="515" height="23" forecolor="#999999" uuid="a1069e95-f853-40c6-b92f-b22dd7a2ddf6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[注：风险价值（VaR）：表示在统计区间内，基金的亏损有95%的可能性不超过VaR。采用非参数方法计算。]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<staticText>
+				<reportElement x="41" y="23" width="241" height="20" uuid="da34e835-f60e-4bac-9b59-dc4612b7c962">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[风险调整收益指标]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="25" y="31" width="4" height="4" forecolor="#EA9B15" uuid="7563f245-8e71-424d-bd1e-4ec42f045749"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<subreport>
+				<reportElement x="20" y="50" width="515" height="50" uuid="7b2f7394-58ff-4bb6-b401-719d947bc4e4"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Performance_Category">
+					<subreportParameterExpression><![CDATA["revenue_risk"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_revenue" + String.valueOf($F{benchmark_count})  + ".jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="23">
+			<staticText>
+				<reportElement x="20" y="0" width="515" height="23" forecolor="#999999" uuid="790bc0d6-06e0-42ce-b90b-77bd13852258">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[注：无风险收益率采用1年期国债中标利率，下同。]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<ellipse>
+				<reportElement x="25" y="31" width="4" height="4" forecolor="#EA9B15" uuid="7d89bfb8-f30d-497f-99e2-089ceeaf0bf3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#EA9B15"/>
+				</graphicElement>
+			</ellipse>
+			<subreport>
+				<reportElement x="20" y="50" width="515" height="50" uuid="4b60ab2f-61dd-4425-8639-28e1831a16b2"/>
+				<subreportParameter name="fund_id">
+					<subreportParameterExpression><![CDATA[$P{fund_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Performance_Category">
+					<subreportParameterExpression><![CDATA["relative"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreport_relative" + String.valueOf($F{benchmark_count})  + ".jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="41" y="23" width="241" height="20" uuid="fc7db2b0-780e-49b4-b023-956822719d05">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[相对指数指标]]></text>
+			</staticText>
+		</band>
+		<band height="145">
+			<image scaleImage="RealSize" onErrorType="Blank">
+				<reportElement x="20" y="0" width="515" height="145" uuid="4e24f6d7-595d-4094-b523-be04d25beb8f"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"/images/Comments.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

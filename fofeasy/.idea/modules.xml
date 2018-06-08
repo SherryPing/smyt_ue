@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../dzmsoft-ccs/dzmsoft-ccs.iml" filepath="$PROJECT_DIR$/../dzmsoft-ccs/dzmsoft-ccs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dzmsoft-ucs/dzmsoft-ucs.iml" filepath="$PROJECT_DIR$/../dzmsoft-ucs/dzmsoft-ucs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fofeasy.iml" filepath="$PROJECT_DIR$/fofeasy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../fofeasy-backstage/fofeasy-backstage.iml" filepath="$PROJECT_DIR$/../fofeasy-backstage/fofeasy-backstage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../fofeasy-base/fofeasy-base.iml" filepath="$PROJECT_DIR$/../fofeasy-base/fofeasy-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../fofeay-report/fofeasy-report.iml" filepath="$PROJECT_DIR$/../fofeay-report/fofeasy-report.iml" />
+    </modules>
+  </component>
+</project>

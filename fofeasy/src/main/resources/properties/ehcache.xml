@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+	xsi:noNamespaceSchemaLocation="ehcache.xsd"  
+	updateCheck="true" monitoring="autodetect"  
+	dynamicConfig="true">  
+  
+  
+	<diskStore path="/usr/local/cache/fofeasycache"/> 
+	
+	<cache name="fundOrgCache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="3600"
+		timeToLiveSeconds="0"
+		overflowToDisk="true"
+		statistics="true">
+	</cache>
+	
+	<cache name="fundManagerMappingCache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="3600"
+		timeToLiveSeconds="0"
+		overflowToDisk="true"
+		statistics="true">
+	</cache>
+	
+	<cache name="dictionaryCache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="3600"
+		timeToLiveSeconds="0"
+		overflowToDisk="true"
+		statistics="true">
+	</cache>
+	
+	<!-- 
+		登录记录缓存 锁定8小時/无操作 8小时
+		timeToLiveSeconds:缓存自创建日期起至失效时的间隔时间
+		timeToIdleSeconds:缓存创建以后，最后一次访问缓存的日期至失效之时的时间间隔
+		-->
+	<cache name="passwordRetryEhcache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="86400"
+		timeToLiveSeconds="0"
+		overflowToDisk="false"
+		statistics="true">
+	</cache>
+  
+	<cache name="authorizationCache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="86400"
+		timeToLiveSeconds="0"
+		overflowToDisk="false"
+		statistics="true">
+	</cache>
+
+	<cache name="authenticationCache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="86400"
+		timeToLiveSeconds="0"
+		overflowToDisk="false"
+		statistics="true">
+	</cache>
+
+	<cache name="shiro-activeSessionCache"
+		maxEntriesLocalHeap="2000"
+		eternal="false"
+		timeToIdleSeconds="3600"
+		timeToLiveSeconds="0"
+		overflowToDisk="false"
+		statistics="true">
+	</cache>
+  
+	<defaultCache  
+		maxElementsInMemory="1000"  
+		eternal="false"  
+		timeToIdleSeconds="120"  
+		timeToLiveSeconds="120"  
+		overflowToDisk="true"  
+		maxElementsOnDisk="10000"  
+		diskSpoolBufferSizeMB="30"  
+		diskPersistent="false"  
+		diskExpiryThreadIntervalSeconds="120"  
+		memoryStoreEvictionPolicy="LRU"  
+		statistics="false"  
+		/>  
+  
+	<cache name="portalCache"  
+		maxElementsInMemory="1000"  
+		maxElementsOnDisk="10000"  
+		eternal="false"  
+		overflowToDisk="true"  
+		diskSpoolBufferSizeMB="20"  
+		timeToIdleSeconds="300"  
+		timeToLiveSeconds="600"  
+		memoryStoreEvictionPolicy="LFU"  
+		transactionalMode="off"  
+		/>  
+  
+  	<cache name="shiro-kickout-session"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+  
+</ehcache> 

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="independent_sub_performance_return" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ae15153d-ccc3-43a1-813e-d359ebbae782">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FUND_ID" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["G:\\Autonomous management\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_HOST" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from fund_info limit 1]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="second_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="can_attribution" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<rectangle radius="1">
+				<reportElement mode="Opaque" x="14" y="10" width="507" height="111" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="5e78b1b3-17b2-4041-826c-a947c30d579e"/>
+			</rectangle>
+			<ellipse>
+				<reportElement x="35" y="100" width="4" height="4" forecolor="#0099CC" uuid="d3164855-af78-4e13-835e-8264551b5a7d"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement mode="Transparent" x="50" y="53" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="ff27a759-dc6c-4ad4-9e64-f12a7e78e51a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[累计收益率：基金在统计区间内投资的回报率，使用基金最新复权累计净值计算]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="35" y="64" width="4" height="4" forecolor="#0099CC" uuid="d5132e8b-64d5-433f-a9f9-d0e7c2c1de1c"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="271" y="64" width="4" height="4" forecolor="#0099CC" uuid="2144f084-5626-4124-8446-60390968b93e"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#0099CC"/>
+				</graphicElement>
+			</ellipse>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="53" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="c7673194-c333-4d5c-b391-103720a40040">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[正收益周期数：统计区间内基金自然周期收益率大于0的周期数
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="50" y="89" width="213" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="f811cbb8-72dc-4551-8cac-33e708d23795">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[非正收益周期数：统计区间内基金自然周期收益率小于等于0的周期数
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="32" y="20" width="469" height="21" forecolor="#666666" backcolor="#FFFFFF" uuid="b589eaf4-bf0f-41ad-8808-64d49a205723">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[收益指标]]></text>
+			</staticText>
+		</band>
+		<band height="220">
+			<subreport>
+				<reportElement x="23" y="61" width="240" height="142" uuid="a208732f-c72a-4399-9b4e-bae6f4d9f13c"/>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TYPE">
+					<subreportParameterExpression><![CDATA["return"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="COLUMN">
+					<subreportParameterExpression><![CDATA["TYPE"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "independent_sub_performance_table.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="27" y="40" width="65" height="1" uuid="11b29255-5dad-4e86-b940-e159ba4b36c9"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="263" y="36" width="284" height="179" uuid="37f52d49-f95e-4617-b890-95d07088220e"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"return_contrast.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="27" y="16" width="100" height="20" uuid="4ad7b006-4fc7-4e47-b642-8d0a2fe737d5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[正负收益周期比]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

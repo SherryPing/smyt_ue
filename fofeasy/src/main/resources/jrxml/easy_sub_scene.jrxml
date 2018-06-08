@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="easy_sub_performance_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="41b04037-0678-4613-b945-66d248fb3eaa">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="123"/>
+	<subDataset name="riskData" uuid="74d04c63-f334-4b19-8426-58644d925c26">
+		<queryString language="SQL">
+			<![CDATA[select * from return_data where fund_id="JR087571" and type="risk";]]>
+		</queryString>
+		<field name="bm" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fund" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="pe" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="row_name" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="type" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fund_id" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="create_at" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="IMAGE_HOST" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://192.168.1.111/upload/2017-07-20/JR087625/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FUND_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JR087571"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ireport\\jrxml_new\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fund_info where fund_id=$P{FUND_ID};]]>
+	</queryString>
+	<field name="foundation_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_full_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fund_type_strategy" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nav_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="create_at" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="10" y="36" width="518" height="46" forecolor="#FFFFFF" backcolor="#E3E3E3" uuid="fb7e4dc8-9ae6-4d62-9a7f-914680856644"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="40" y="62" width="469" height="20" forecolor="#666666" uuid="3d5a7794-7627-423e-9644-08c7572d7f4a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[根据沪深300指数两年内单日跌幅相对前60日波动率比值最大的3种极端情形，对基金按最新60日波动率计算单日最大跌幅。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="40" y="41" width="469" height="21" forecolor="#666666" backcolor="#FFFFFF" uuid="40506260-9159-4cb8-8f17-a76aa09af2e6">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[情景分析]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="2" width="158" height="30" forecolor="#000000" uuid="a66e86ce-3f9f-4fbe-aa4f-c7b89e16022b">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[情景分析]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="200">
+			<staticText>
+				<reportElement x="20" y="8" width="189" height="20" uuid="50528d95-f186-4618-802c-e7f6ad05ff6f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[压力测试]]></text>
+			</staticText>
+			<line>
+				<reportElement x="21" y="32" width="55" height="1" uuid="541da720-56dc-4b8f-809e-8396daeed903"/>
+				<graphicElement>
+					<pen lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="16" y="48" width="250" height="142" uuid="d329c856-b419-42ed-97c1-f6f9d68ddc4f"/>
+				<subreportParameter name="IMAGE_HOST">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FUND_ID">
+					<subreportParameterExpression><![CDATA[$P{FUND_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "easy_sub_press_test_table.jasper"]]></subreportExpression>
+			</subreport>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="267" y="33" width="279" height="167" uuid="7c48f628-cfbf-4b43-86d4-3a5827201901"/>
+				<imageExpression><![CDATA[$P{IMAGE_HOST}+"stress_testing.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="150">
+			<staticText>
+				<reportElement x="20" y="25" width="158" height="30" forecolor="#000000" uuid="f645013c-3a6d-4c68-b17e-a390059738d8">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="16" isBold="true" isItalic="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[免责声明]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="66" width="469" height="53" forecolor="#666666" backcolor="#FFFFFF" uuid="a8829dc2-e3a3-4fe5-8543-0af7abbcd965">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[本文中所提及的基金及投顾公司仅为展示说明功能，不构成任何投资参考意见，亦不构成财务、法律、税务、投资咨询意见或其他意见，对任何因直接或间接使用本文所涉及的信息和内容或者据此进行投资所造成的一切后果或损失，私募云通不承担任何法律责任。本报告版权归私募云通所有。未获取私募云通事先书面授权，任何人不得对本报告进行任何形式的发布、复制。如遵循原文本意地引用、刊发，需注明出处“私募云通”。]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

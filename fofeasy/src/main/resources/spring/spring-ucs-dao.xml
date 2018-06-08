@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<description>Spring DAO配置</description>
+
+	<!-- 数据源配置, 使用druid连接池 -->
+	<bean id="ucsDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${ucs.jdbc.driver}" />
+		<property name="url" value="${ucs.jdbc.url}" />
+		<property name="username" value="${ucs.jdbc.username}" />
+		<property name="password" value="${ucs.jdbc.password}" />
+		<!-- 配置监控统计拦截的filters -->
+		<property name="filters" value="${ucs.druid.filters}" />
+		<property name="connectionProperties" value="${ucs.druid.connectionProperties}" />
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="${ucs.druid.initialSize}"/>
+		<property name="minIdle" value="${ucs.druid.minIdle}"/>
+		<property name="maxActive" value="${ucs.druid.maxActive}"/>
+
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="${ucs.druid.maxWait}"/>
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="${ucs.druid.timeBetweenEvictionRunsMillis}" />
+
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="${ucs.druid.minEvictableIdleTimeMillis}" />
+
+		<property name="validationQuery" value="${ucs.druid.validationQuery}" />
+		<property name="testWhileIdle" value="${ucs.druid.testWhileIdle}" />
+		<property name="testOnBorrow" value="${ucs.druid.testOnBorrow}" />
+		<property name="testOnReturn" value="${ucs.druid.testOnReturn}" />
+
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。-->
+		<property name="poolPreparedStatements" value="${ucs.druid.poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="${ucs.druid.maxPoolPreparedStatementPerConnectionSize}" />
+	</bean>
+	
+	<bean id="ucsSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="ucsDataSource" />
+		</property>
+		<property name="mapperLocations">
+		    <list>
+		        <value>classpath*:com/dzmsoft/ucs/**/mapping/*.xml</value>
+		        <value>classpath*:com/dzmsoft/ccs/**/mapping/*.xml</value>
+		        <value>classpath*:com/dzmsoft/**/backstage/mapping/*.xml</value>
+		    </list>
+		</property>
+		<property name="plugins">
+			<list>
+				<bean
+					class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+					<property name="dialectClass"
+						value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="ucsSqlSessionFactory"></property>  
+		<property name="basePackage" value="com.dzmsoft.ucs.base.dao,com.dzmsoft.ccs.base.dao,com.dzmsoft.fofeasy.backstage.dao" /> 
+	</bean>  
+	
+	<!--数据连接事务 -->
+	<bean id="ucsTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="ucsDataSource" />
+	</bean>
+
+	<!--连接事务的注解配置 -->
+	<tx:annotation-driven transaction-manager="ucsTransactionManager" />
+	
+
+
+</beans>
