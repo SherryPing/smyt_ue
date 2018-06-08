@@ -1,0 +1,370 @@
+<!--产品详情-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../js/skin/layer.css" />
+		<link rel="stylesheet" href="../css/list.css" />
+		<link rel="stylesheet" href="../css/prcdetail.css" />
+		<title>基金详情</title>
+	</head>
+
+	<body>
+		<div id="prcDetail" class="content" v-cloak>
+			<!--<div class="content-header">
+				<a @click="back()" style="float:left;padding-left: 10px;"><img class="back" src="../images/back.jpg"/></a>
+				<span>基查查</span>
+			</div>-->
+			<div ref="layer" id="layer">
+				<div>
+					<img src="../images/loading.gif" alt="" />
+				</div>
+				<div>
+					<span>加载中</span>
+				</div>
+			</div>
+			<div class="content-body">
+				<div class="detail">
+					<div class="detail-top">
+						<div class="detail-title-top">
+							<div class="top">
+								<span class="fund-name ellipse" style="display:inline-block;width:100%;" >{{fundName}}</span>								
+						</div>
+						<div class="detail-title-middle">
+							<span class="fund-id">{{regCode}}</span>
+							<!--<span wx:else>{{util.nore(regCode)}}</span>-->
+							<span class="fund-type">{{fundTypeName}}</span>
+							<img v-show="!isprivate&&!isCurrency" class="similar-fund" src="../images/similar_fund.png" @click="navToSimilar()">
+						</div>
+					</div>
+					<div class="detail-info">
+						<div class="detail-title-bottom">
+							<div v-show="!isCurrency" class="infoNoc">
+								<div class="noCurrency">
+									<span style="color:#333;">{{latestNav}}</span>
+									<span>单位净值({{latestNavDate}})</span>
+									<!--<span wx:else>单位净值(--)</span>-->
+								</div>
+								<div class="noCurrency">
+									<!--<div :class="y1Return>0?'up':'down'" class="up">{{y1Return}}%</div>-->
+									<div v-if="y1Return>0" class="up">{{y1Return}}%</div>
+									<div v-else-if="y1Return<0" class="down">{{y1Return}}%</div>
+									<div v-else >{{y1Return}}</div>
+									<span>近一年收益</span>
+								</div>
+							</div>
+							<!-- 货币型 -->
+							 <div v-show="isCurrency" class="infoc" >
+								<div class="Currency">
+									<span class="f16" style="color:#333">{{latestNavDate}}</span>
+									<span>净值日期</span>
+								</div>
+								<div class="Currency">
+									<div v-if="d7Return>0" class="f16 up">{{d7_return_a}}%</div>
+									<div v-else class="f16 down">{{d7_return_a}}%</div>
+									<span>7日年化</span>
+								</div>
+								<div class="Currency">
+									<span class="f16" style="color:#333">{{return_10k}}</span>
+									<span>万份收益</span>
+								</div>
+							</div> 
+							<div v-show="!collection" :class="isCurrency?'Currency':'noCurrency'"  @click="add()">
+								<img src="../images/college2.png" class="top8" style="width:25px;height:25px;">
+								<span>加入自选</span>
+							</div>
+							<div v-show="collection" :class="isCurrency?'Currency':'noCurrency'"  @click="remove()">
+								<img src="../images/college2_act.png" class="top8" style="width:25px;height:25px;">
+								<span>取消自选</span>
+							</div>
+
+						</div>
+						<div class="detail-title-reviews">
+							<div class="logodiv">
+								<img src="../images/cloud_logo.png" style="width:30px;height:17px;margin-right:10px;position:relative;top:3px;">云通分析
+							</div>
+							<div v-show="!isCurrency" class="reviewsDetail">
+								<span>
+              						<span>该基金近一年收益表现{{fundState1}}，</span>
+									<span>风险控制{{fundState2}}，</span>
+									<span>单位风险下获取收益能力{{fundState3}}。</span>
+								</span>
+							</div>
+							<!--货币型-->
+							<div v-show="isCurrency" class="reviewsDetail" >
+								<span>
+									<span>该基金7日年化收益高于{{d7rank}}货币基金</span>
+								</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="slider-header" style="position: static;margin-top: 6px;border-top: 1px solid #f0f0f0;">
+					<div class="allSort">
+						<div class="sortMenu clearfix">
+							<ul class="sortMenu-ul">
+								<li class="cell" v-for="item in freq" @click="toggleFreq(item.id,item.name)" :class="{active:item.id==freqLength}">
+									<span>{{item.name}}</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="performance bg-white detail_card">
+					<div class="modultitle title-div">
+						<span v-if="isCurrency" class="title">七日年化</span>
+						<span v-else class="title">业绩走势</span>
+						<span class="year">{{freqCnt}}</span>
+						<img v-show="chart" class="switch-img" @click="toggleTc" src="../images/performance_list.png">
+						<img v-show="!chart" class="switch-img" @click="toggleTc" src="../images/performance_chart.png">
+					</div>
+					<div class="net bgwhite" style=" border-top:1px solid #f0f0f0;margin-top:10px !important;height:200px">
+						<div v-show="chart" class="chart">
+							<div v-show="lineState">
+								<!--<div class="line_legend">
+										<div class="legend">
+											<div class="legendPot" style="background:{{item.color}}"></div>
+											<div>{{item.name}} ({{item.nav}})</div>
+										</div>
+									</div>-->
+								<div style="padding-left:9px">
+									<div id="lineCharts" style="height: 290px;"></div>
+								</div>
+							</div>
+							<div v-show="!lineState" class="LoadView">
+								<img class="loading" src="../images/load.png">
+								<div>暂无数据</div>
+							</div>
+						</div>
+						<div v-show="!chart" class="tab">
+							<div v-show="netState">
+								<div style='height: 17px'>
+									<div v-show="!isCurrency" class="li tab-title">
+										<div>净值日期</div>
+										<div>单位净值</div>
+										<div>累计净值</div>
+										<div>复权累计净值</div>
+									</div>
+									<div v-show="isCurrency" class="li tab-title">
+										<div>净值日期</div>
+										<div>7日年化</div>
+										<div>万份收益</div>
+									</div>
+								</div>
+								<div style="height:245px;overflow:scroll">
+									<div v-show="!isCurrency" class="li" v-for="item in netData">
+											<div>{{item.statistic_date}}</div>
+											<div>{{item.nav}}</div>
+											<div>{{item.added_nav}}</div>
+											<div>{{item.swanav}}</div>
+									</div>
+									<div v-show="isCurrency" class="li" v-for="item in netData">
+										<div style="width:37%;text-align:center;">{{item.statistic_date}}</div>
+										<div>{{item.d7_return_a}}</div>
+										<div>{{item.return_10k,4}}</div>
+									</div>
+								</div>
+							</div>
+							<div v-show="!netState" class="LoadView">
+								<img class="loading" src="../images/load.png">
+								<div>暂无数据</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="rank detail_card">
+					<div class="modultitle title-div">
+						<span class="title">同类排名</span>
+						<span class="year">{{freqCnt}}</span>
+					</div>
+					<div v-if="rankState">
+						<div v-show="!isCurrency" >
+							<div class="con" style="margin-top:20px;position: static;" bindtap='returnInfo'>
+								<div class="income">
+									<div class="info" @click="confirm('return')">
+										<span class="income-value">{{incomeReturn}}</span>
+										<div>
+											<div class="income-title">年化收益</div>
+											<img src="../images/info.png">
+										</div>
+									</div>
+								</div>
+								<div class="list">
+									<span class="list-value">{{rankReturn}}/{{rankTotal}}</span>
+								</div>
+								<div class="local">
+									<div class="progressbar">
+										<div class="prolocal" ref="returns"></div>
+									</div>
+									<div class="font">
+										<span class="qian">前</span>
+										<span class="number">{{returnLocation}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="con" style="position: static;">
+								<div class="income">
+									<div class="info" @click="confirm('mdd')">
+										<span class="income-value">{{incomeMaxdrawdown}}</span>
+										<div>
+											<div class="income-title">最大回撤</div>
+											<img src="../images/info.png">
+										</div>
+									</div>
+								</div>
+								<div class="list">
+									<span class="list-value">{{rankMaxdrawdown}}/{{rankTotal}}</span>
+								</div>
+								<div class="local">
+									<div class="progressbar">
+										<div class="prolocal" ref="mdd"></div>
+									</div>
+									<div class="font">
+										<span class="qian">前</span>
+										<span class="number">{{mddLocation}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="con" style="position: static;">
+								<div class="income">
+									<div class="info" @click="confirm('sharp')">
+										<span class="income-value">{{incomeSharpe}}</span>
+										<div>
+											<div class="income-title">夏普比率</div>
+											<img src="../images/info.png">
+										</div>
+									</div>
+								</div>
+								<div class="list">
+									<span class="list-value">{{rankSharpe}}/{{rankTotal}}</span>
+								</div>
+								<div class="local">
+									<div class="progressbar">
+										<div class="prolocal" ref="sharpe"></div>
+									</div>
+									<div class="font">
+										<span class="qian">前</span>
+										<span class="number">{{sharpeLocation}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div v-show="isCurrency" >
+								<div class="con" style="margin-top:20px;">
+									<div class="income">
+										<div class="info" @click="confirm('sevenday')">
+											<span class="income-value">{{d7Return}}</span>
+											<div>
+												<div class="income-title">7日年化</div>
+												<img src="../images/info.png">
+											</div>
+										</div>
+									</div>
+									<div class="list">
+										<span class="list-value">{{rankReturn}}/{{rankTotal}}</span>
+									</div>
+									<div class="local">
+										<div class="progressbar">
+											<div class="prolocal" style="left:29px"></div>
+										</div>
+										<div class="font">
+											<span class="qian">前</span>
+											<span class="number">{{returnLocation}}</span>
+										</div>
+									</div>
+								</div>
+					</div>
+				</div>
+				<div v-else class="LoadView">
+					<img class="loading" style="margin-top:5%;" src="../images/load.png">
+					<div>暂无数据</div>
+				</div>
+			</div>
+
+			<div v-show="!isCurrency" class="risk detail_card">
+				<div class="modultitle title-div">
+					<span class="title">风险指标</span>
+					<span class="year">{{freqCnt}}</span>
+				</div>
+				<div class="con" style='min-height:250px;margin-top:5px;position: static;width: calc(100% - 40px);'>
+					<div v-if="riskState" class="chart-content">
+						<div class="legend">
+						</div>
+						<div style="margin-left:-12px;margin-top:5px;position:relative;">
+							<div id="columnCharts" style="height: 240px;"></div>
+							<img class="coulmnImg var" src="../images/info.png" @click="confirm('var')">
+							<img class="coulmnImg stdev" src="../images/info.png" @click="confirm('stdev')">
+							<img class="coulmnImg mdd" src="../images/info.png" @click="confirm('mdd')">
+						</div>
+					</div>
+					<div v-else class="LoadView">
+						<img class="loading" style="margin-top:10%;" src="../images/load.png">
+						<div>暂无数据</div>
+					</div>
+				</div>
+			</div>
+			<div class="detail_card" style="padding-bottom:12px;border:none !important;">
+				<div class="modultitle title-view" style="height:19px">
+					<span class="title" style="position:absolute;left:10px;">基金信息</span>
+				</div>
+				<div class="con" style="margin-top:10px;position: static;width: calc(100% - 40px);">
+					<div class="info-table" style="margin-bottom: 20px;">
+						<div class="li">
+							<span>产品简称：</span>
+							<span>{{basicInfo.fund_name}}</span>
+						</div>
+						<div class="li">
+							<span>产品全称：</span>
+							<span>{{basicInfo.fund_full_name}}</span>
+						</div>
+						<div class="li" @click="navToCom(basicInfo.org_id)">
+							<span>基金公司</span>
+							<img v-if="basicInfo.org_name" class="gotoCompany fr" src="../images/goCompany.png">
+							<span v-if="basicInfo.org_name" class="mainColor">{{basicInfo.org_name}}</span>
+							<span v-else class="mainColor">--</span>
+						</div>
+						<div class="li">
+							<span>基金经理：</span>
+							<span>{{managerName}}</span>
+						</div>
+						<div class="li">
+							<span>成立日期：</span>
+							<span>{{basicInfo.foundation_date}}</span>
+						</div>
+						<div v-show="isprivate" class="li">
+							<span>发行方式：</span>
+							<span>{{basicInfo.issue_method}}</span>
+						</div>
+						<div v-show="!isprivate" class="li">
+							<span>投资方式：</span>
+							<span>{{basicInfo.invest_method}}</span>
+						</div>
+						<div class="li">
+							<span>投资策略：</span>
+							<span>{{basicInfo.fund_strategy}}</span>
+						</div>
+						<div class="li">
+							<span>披露频率：</span>
+							<span>{{basicInfo.data_freq}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+		</div>
+		</div>
+		<script src="../js/jquery.js"></script>
+		<script src="../js/layer.js"></script>
+		<script src="../js/highcharts.js"></script>
+		<script src="../js/taglib.js"></script>
+		<script src="../js/vue/dist/vue.min.js"></script>
+		<script src="../js/vue-resource/dist/vue-resource.min.js"></script>
+		<script src="../js/prcdetail.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!-- 公司列表页 -->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/company.css" />
+		<link rel="stylesheet" href="../css/layer.css" />
+		<title>基金公司</title>
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+		<div id="comList" v-cloak>
+			<div ref="layer" id="layer">
+				<!--<div v-show="!more">
+					<span>已加载全部</span>
+				</div>-->
+				<div>
+					<img src="../images/loading.gif" alt="" />
+				</div>
+				<div>
+					<span>加载中</span>
+				</div>
+			</div>
+			<!--<div class="content-header">
+				<a href="../index.html" style="float:left;padding-left: 10px;"><img class="back" src="../images/back.jpg" /></a>
+				<span>基查查</span>
+			</div>-->
+			<div class="content-body">
+				<div class="list-cnt">
+					<div class="tabview" style="border-bottom: 1px solid #f0f0f0;background-color: white;">
+						<div class="tab" :class="{active: isPublic}" @click="toggle('public')" id="public">公 募</div>
+						<div class="tab" :class="{active: !isPublic}" @click="toggle('private')" id="private">私 募</div>
+					</div>
+					<!-- 公募 -->
+					<div v-show="isPublic">
+						<div class="private_com_list">
+							<div class="card" v-for="item in publicComList" @click="goDetail('public',item.org_id)">
+								<div class="card_left">
+									<div>
+										<div class="ellipse">{{item.org_name}}</div>
+										<div class="ellipse">代表产品：{{item.core_fund_name}}</div>
+									</div>
+									<div class="flex_bottom">
+										<div>访问数：{{item.viewed}}</div>
+										<div>成立日期：{{item.foundation_date}}</div>
+									</div>
+								</div>
+								<div class="card_right">
+									<div class="pronum_tip">
+										<div>{{item.total_fund_num}}</div>
+										<div>产品数量</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- 私募 -->
+					<div v-show="!isPublic">
+						<div class="private_com_list">
+							<div class="card" v-for="item in privateComList" @click="goDetail('private',item.org_id)">
+								<div  style="display: flex;width: 100%;">
+									<div class="card_left">
+										<div v-show="isPer">
+											<div class="ellipse">{{item.org_name}}</div>
+											<div class="ellipse">代表产品：{{item.core_fund_name}}</div>
+										</div>
+										<!--<div v-show="!isPer" style="display: block;width:100%;text-align: center;">-->
+											<div class="qualify_tip" v-show="!isPer">
+												<div>
+													<img style="width: 14px;height: 18px;" src="../images/qualify.png">
+													<span style="color: red;font-size: 14px;">认证可见</span>
+												</div>
+											</div>
+										<!--</div>-->
+										
+										<div class="flex_bottom">
+											<div>访问数：{{item.viewed}}</div>
+											<div>成立日期：{{item.foundation_date}}</div>
+										</div>
+									</div>
+									<div class="card_right">
+										<div class="pronum_tip">
+											<div>{{item.total_fund_num}}</div>
+											<div>产品数量</div>
+										</div>
+
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<span id="anchorPoint"></span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/taglib.js"></script>
+	<script src="../js/vue/dist/vue.js"></script>
+	<script src="../js/vue-resource/dist/vue-resource.min.js"></script>
+	<script src="../js/comlist.js"></script>
+
+</html>

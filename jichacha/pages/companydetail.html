@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/list.css" />
+		<link rel="stylesheet" href="../css/company.css" />
+		<link rel="stylesheet" href="../css/layer.css" />
+		<title>基金公司</title>
+	</head>
+
+	<body>	
+		<div id="comDetail" class="content" v-cloak>
+			<!--<div class="content-header">
+				<a @click="back()" style="float:left;padding-left: 10px;"><img class="back" src="../images/back.jpg"/></a>
+				<span>基查查</span>
+			</div>-->
+			<div ref="layer" id="layer">
+				<div>
+					<img src="../images/loading.gif" alt="" />
+				</div>
+				<div>
+					<span>加载中</span>
+				</div>
+			</div>
+			<div class="content-body" >
+				<div style="background: #F7F8FA;">
+					<div class="com_card">
+						<div class="com_title">
+							<div class="com_name ellipse" style="margin-top:5px">{{org_name}}</div>
+							<div v-show="isPrivate" class="record" style="height: 71px;line-height:82px;" @click="goToFundRecord()">
+								<img src="../images/record_detail.png" style="width: 76px;height: 22px;" />
+							</div>
+						</div>
+						<div class="detail-title-middle">
+							<span>成立日期：{{foundation_date}}</span>
+						</div>
+						<div class="card_com">
+							<div class="card_top">
+								<div>
+									<div>{{scale_mgt}}</div>
+									<div>管理规模 (亿元)</div>
+								</div>
+								<div>
+									<div>{{total_fund_num}}</div>
+									<div>管理产品数量</div>
+								</div>
+								<div>
+									<div>{{reg_capital}}</div>
+									<div>注册资本 (万元)</div>
+						
+								</div>
+								<!-- <div>
+          <div>
+            <text>成立日期：</text>
+            <text>{{foundation_date}}</text>
+          </div>
+          <div>
+            <text wx:if="{{orgtype=='public'}}">注册资本（亿元）：</text>
+            <text wx:else>注册资本(万元)：</text>
+            <text>{{reg_capital}}</text>
+          </div>
+          <div>
+            <text>代表产品：</text>
+            <text>{{core_fund_name}}</text>
+          </div>
+        </div>
+        <div>
+          <div>
+            <text>管理产品数量：</text>
+            <text>{{total_fund_num}}</text>
+          </div>
+          <div>
+            <text>管理规模：</text>
+            <text>{{scale_mgt}}</text>
+          </div>
+          <div>
+            <text>核心成员：</text>
+            <text>{{core_manager}}</text>
+          </div>
+        </div> -->
+							</div>
+							<div class="card_bottom">
+								<div style="max-width: calc(100% - 30px)">
+									<img src="../images/prePro.png" style="width: 20px;height: 18px;">
+									<span style="color:#7d7d7d">代表产品：</span><span style="max-width: calc(100% - 98px);color:#3a3a3a">{{core_fund_name}}</span>
+								</div>
+								<div>
+									<img src="../images/corePeo.png" style="width: 20px;height: 17px;">
+									<div>核心成员：</div>
+									<div>{{core_manager}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="com_card">
+						<div class="card_main_title">产品分布</div>
+						<div v-if="distribute" style="margin-top: 20px;">
+							<div id="chart" class="canvas"></div>
+							<div class="ringLegend">
+								<div v-for="(item,index) in point" v-if="index<6" class="legendTip">
+									<div class="pot" :style="{backgroundColor:item.color}"></div>
+									<div class="text">{{item.name}}({{item.value}})</div>
+								</div>
+							</div>
+						</div>
+						<div v-else class="LoadView">
+							<img class="loading" src="../images/load.png" style="margin-top:10%">
+							<div style="margin-bottom:10%">暂无数据</div>
+						</div>
+					</div>
+					<div class="com_card" style="border-bottom:none;padding-bottom:0px !important;">
+						<div class="card_main_title">旗下基金</div>
+						<!--<div hidden="{{scrollLeft}}" class="arrow_left">
+							<img src="../images/prev.png" style="width:8px;height:14px;">
+						</div>-->
+						<div v-if="distribute" class="slider-header" style="position: static;">
+							<div class="allSort">
+								<div class="sortMenu clearfix">
+									<ul class="sortMenu-ul">
+										<li class="cell" v-for="item in flagStragey" @click="toggleStrategy(item.fund_type,item.data)" :class="{active:item.fund_type==type}">
+											<span>{{item.name}}</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- </div> -->
+						<div v-show="listCurrency&&distribute">
+							<div class="con_title" style="position: static;">
+								<div>基金名称</div>
+								<div style="text-align:center;">7日年化</div>
+								<div>万份收益</div>
+							</div>
+						</div>
+						<div v-show="!listCurrency&&distribute">
+							<div class="con_title" style="position: static;">
+								<div>基金名称</div>
+								<div>成立以来年化收益</div>
+								<div>最新净值</div>
+							</div>
+						</div>
+						<div v-if="distribute" class="con" @scroll="dropLoad()">
+							<div v-show="!listCurrency" class="card" v-for="item in publicList" @click="goDetail(item.fund_id)">
+								<div class="card_con">
+									<div class="card_con_dou">
+										<div class="ellipse">{{item.fund_name}}</div>
+										<div>{{item.reg_code}}</div>
+									</div>
+									<div class="card_con_sin">
+										<div v-if="item.total_return_a>0" class="up">{{item.total_return_a}}%</div>
+										<div v-else-if="item.total_return_a<0" class="down">{{item.total_return_a}}%</div>
+										<div v-else >--</div>
+										<!--<div wx:else class="down">{{util.toFix(item.total_return_a*100,2)}}%</div>-->
+									</div>
+									<div class="card_con_dou">
+										<div>{{item.latest_nav}}</div>
+										<div>{{item.latest_nav_date}}</div>
+									</div>
+								</div>
+							</div>
+							<div v-show="listCurrency" class="card" v-for="item in hbList" @click="goDetail(item.fund_id)">
+								<div class="card_con">
+									<div class="card_con_dou">
+										<div class="ellipse">{{item.fund_name}}</div>
+										<div>{{item.reg_code}}</div>
+									</div>
+									<div class="card_con_dou">
+										<div>{{item.d7_return_a}}</div>
+										<div>{{item.latest_nav_date}}</div>
+									</div>
+									<div class="card_con_dou">
+										<div>{{item.return_10k}}</div>
+										<div>{{item.latest_nav_date}}</div>
+									</div>
+									
+									
+								</div>
+
+								
+							</div>
+							<span id="anchorPoint"></span>
+						</div>
+						<div v-if="!distribute" class="LoadView" style="height:175px;">
+							<img class="loading" src="../images/load.png" style="margin-top:10%">
+							<div style="margin-bottom:10%">暂无数据</div>
+						</div>
+						
+					</div>
+				</div>
+	</body>
+	
+	<script src="../js/jquery.js"></script>
+	<script src="../js/taglib.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/highcharts.js"></script>
+	<script src="../js/vue/dist/vue.min.js"></script>
+	<script src="../js/vue-resource/dist/vue-resource.min.js"></script>
+	<script src="../js/comDetail.js"></script>
+
+</html>

@@ -1,0 +1,470 @@
+page {
+	background: #fafafa;
+}
+.sortMenu {
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #f0f0f0;
+	overflow-x: scroll;
+	-webkit-overflow-x: scroll;
+}
+.sortMenu-ul {
+    height: 38px;
+}
+.sortMenu .cell.active {
+    height: 35px;
+    line-height: 35px;
+}
+.sortMenu .cell {
+    height: 35px;
+    line-height: 35px;
+}
+.myinfo_card1 .con>div {
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+.myinfo_card1 .con>div:first-child,
+.myinfo_card1 .con>div:last-child {
+	margin: 0;
+}
+
+.myinfo_card1 .con .fr {
+	max-width: calc(100% - 120px);
+	color: #3a3a3a;
+}
+
+.myinfo_card1 .con {
+	background: #fafafa;
+	margin: -5px 15px 10px 15px;
+	padding: 10px;
+	font-size: 12px;
+	color: #7D7D7D;
+}
+
+.myinfo_card1 {
+	background: #ffffff;
+	letter-spacing: 1px;
+	margin-bottom: 8px;
+	overflow: hidden;
+	border-bottom: 1px solid #f0f0f0;
+	border-top: 1px solid #f0f0f0;
+}
+#record .con{
+	background:#fafafa;
+	margin:-5px 15px 10px 15px;
+	padding:10px;
+	font-size:12px;
+	color:#7D7D7D;
+}
+#record .myinfo_card1{
+	
+}
+.myinfo_card1 .title {
+	font-size:14px;
+	border-left:5px solid #FF391A;
+	padding-left:7px;
+	margin:14px 0;
+	color:#3a3a3a;
+	font-weight:600;
+}
+
+/* 公司详情 */
+page{
+  background:#fafafa;
+}
+.com_card {
+  position: relative;
+  color:#3a3a3a;
+  margin-bottom:5px;
+  background:#ffffff;
+  padding:14px 0;
+  border-bottom:1px solid #f0f0f0;
+  border-top:1px solid #f0f0f0;
+}
+.com_card:first-child {
+  padding:0 0 3px 0;
+  border-top: none;
+}
+.detail-title-middle {
+  width: 80%;
+}
+.arrow_left{
+  position: absolute;
+  top:32px;
+}
+.arrow_right{
+  position: absolute;
+  top:-3px;
+  /* right: -2rpx; */
+}
+.detail-title-middle {
+  position:relative;
+  top:-9px;
+  left:10px;
+}
+/* 头部 */
+.com_title {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+}
+.com_title .com_name,.com_title .record {
+  display: inline-block;
+}
+.com_title .com_name {
+  flex: 2;
+  font-size: 16px;
+  color: #3a3a3a;
+  overflow: hidden;
+}
+.com_title .date {
+  font-size: 12px;
+  color: #898284;
+}
+/* 头部卡片 */
+.card_com {
+  margin: 5px 7px 0 7px;
+  border-radius: 5px;
+  min-height:150px;
+  background: #fafafa;
+  margin-bottom:5px;
+}
+.card_top {
+  display: flex;
+  padding: 15px;
+  height: 36px;
+  border-bottom: 1px dashed #DCD9D9;
+}
+.card_top>div {
+  flex: 1;
+  font-size: 12px;  
+  text-align: center;
+  color: #7d7d7d;
+}
+.card_bottom{
+  padding: 15px 15px 0 15px;
+  font-size: 14px;
+  color: #7d7d7d;
+}
+.card_bottom>div {
+  overflow: hidden;
+  min-height: 32px;
+  line-height: 20px;
+}
+.card_bottom>div div:last-child{
+  color: #3a3a3a;
+}
+.card_bottom>div img{
+  position:relative;
+  top:4px;
+  margin-right:7px;
+}
+.card_bottom>div>div{
+  display: inline-block;
+}
+.card_top>div>div:first-child {
+  color: #3a3a3a;
+  font-size: 16px;
+  height: 22px;
+  line-height: 22px;
+}
+.card_com_tip>div {
+  position: relative;
+  flex: 1;
+  font-size: 24px;
+  height: 35px;
+  margin: 12px 0;
+  overflow: hidden;
+  z-index: 100;
+}
+.card_com_tip>div:first-child {
+  border-right: 1px dashed #ffffff;
+}
+.card_com_tip>div>div:last-child {
+  font-size: 10px;
+  margin-top: 3px;
+}
+.card_com_bottom {
+  font-size: 12px;
+  color: #898284;
+  padding: 0 10px;
+  height: 35px;
+  line-height: 35px;
+  border-top: 1px solid #fafafa;
+}
+.card_com_bottom img{
+  float: right;
+  margin-top:12px;
+}
+/* 主体卡片 */
+.card_main_title {
+  font-size: 14px;
+  border-left: 5px solid #FF391A;
+  padding-left: 8px;
+  font-weight: 600;
+}
+.canvas {
+  display: inline-block;
+  width: 60%;
+  height: 180px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+.ringLegend {
+  margin-top:20px;
+  width: 38%;
+  height: 20px;
+  line-height: 20px;
+  float: right;
+  font-size: 10px;
+  color:#7D7D7D;
+}
+.ringLegend .legendTip div{
+  display: inline-block;
+}
+.ringLegend .legendTip .pot {
+  position:relative;
+  top:2px;
+  right:8px;
+  width:12px;
+  height:12px;
+  line-height: 12px; 
+  border-radius:6px;
+}
+/* 旗下头部 */
+.scroll_h {
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: none;
+}
+.scroll_h .scroll_h_item {
+  width: 15%;
+  margin:0 3px;
+}
+.scroll_h .scroll_h_item.active {
+  height:26px;
+  border-bottom: 3px solid #F14F2F;
+}
+/* 内容头部 */
+.con_title {
+  display: flex;
+  width:calc(100% - 20px);
+  height:30px;
+  line-height:30px;
+  text-align:right;
+  color:#7D7D7D;
+  font-size:12px;
+  padding:0 10px;
+  background:#ffffff;
+}
+.con_title div {
+  flex: 0.7;
+}
+.con_title div:nth-child(2) {
+  text-align: right;
+  flex: 1.3;
+}
+.con_title div:first-child {
+  flex: 2;
+  text-align: left;
+}
+/* 列表内容 */
+.con {
+	position: static;
+	height: 475px;
+	overflow: auto;
+}
+.card {
+  padding: 10px 10px;
+  background: #ffffff;
+  border-bottom: 2px solid #fafafa;
+}
+.card:nth-child(odd){
+  background: #FAFAFA;
+}
+.card_con {
+  display: flex;
+  font-size: 14px;
+  color: #3a3a3a;
+}
+
+ .card_con>div {
+  flex: 0.7;
+}
+.card_con .ellipse{
+  font-size: 14px;
+}
+.card_con .card_con_sin div{
+  text-align: center;
+}
+.card_con_dou div {
+  text-align: center;
+}
+.card_con>div:first-child {
+  flex: 1.8;
+  overflow: hidden;
+}
+.card_con_dou .fund-number{
+  font-size: 12px;
+  color: #7D7D7D;
+  text-align: center;
+  line-height: 10px;
+}
+.card_con>div:first-child div {
+  text-align: left;
+}
+.card_con .card_con_dou div:last-child {
+  color: #7d7d7d;
+  font-size: 12px;
+  height: 12px;
+  line-height: 14px;
+}
+.card_con .card_con_dou:last-child div {
+  text-align: right;
+}
+.card_con .card_con_sin div{
+  height: 18px;
+}
+.card_con .card_con_qualify div {
+  height: 50px;
+  line-height: 53px;
+}
+.card_con .card_con_qualify:last-child div {
+  text-align: right;
+  font-size: 14px;
+  color: #3A3A3A;
+}
+.card_con_qualify img {
+  width: 12px;
+  height: 14px;
+  margin-top:0px;
+  margin-right:7px;
+}
+.scroll_h .scroll_h_item.active {
+  height:28px;
+}
+.noauthorized {
+  padding:155px 20px;
+}
+/*
+ 	基金公司列表
+ * */
+/* 头部 */
+/* 公募列表 */
+.public_com_list {
+  position: fixed;
+  top: 105px;
+  left: 0;
+  /* padding-top: 102rpx;  */
+  font-size: 12px;
+  /* height: 1104rpx; */
+  height: 100%;
+  color: #3a3a3a;
+}
+.public_com_list .title {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #F14F2F;
+  padding-left: 15px;
+  font-weight: 600;
+  border-top: 1px solid #fafafa;
+}
+.public_com_list .card {
+  padding: 10px 25px 10px 10px;
+}
+.public_com_list .card:nth-child(even),.private_com_list .card:nth-child(odd) {
+  background:#fafafa;
+}
+.public_com_list .card>view:first-child {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.public_com_list .flex_bottom {
+  display: flex;
+  color: #7d7d7d;
+  margin-top: 5px;
+}
+.public_com_list .flex_bottom div {
+  flex: 1;
+}
+.public_com_list .flex_bottom div:last-child {
+  flex: 2;
+}
+/* 右侧索引 */
+.list-right-wrapper {
+  position: fixed;
+  top: 104px;
+  right: 8px;
+  z-index: 2;
+}
+
+.right-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 5px;
+  font-size: 12px;
+  color: #708091;
+  height:17px;
+  line-height:17px;
+}
+.point {
+  font-size: 16px;
+  color: #F14F2F;
+  font-weight: 600;
+}
+/* 私募列表 */
+.private_com_list {
+  padding-top: 50px; 
+  font-size: 12px;
+  color: #3a3a3a;
+}
+.private_com_list .card {
+  display: flex;
+  padding: 10px 20px 10px 10px;
+}
+.private_com_list .card .card_left {
+  flex: 3;
+  overflow: hidden;
+}
+.private_com_list .card .card_right {
+  flex: 1;
+}
+.private_com_list .card_left>div:first-child>div:first-child {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.private_com_list .flex_bottom {
+  display: flex;
+  color: #7d7d7d;
+  margin-top: 5px;
+}
+.private_com_list .flex_bottom div {
+  flex: 1;
+}
+.private_com_list .flex_bottom div:last-child {
+  flex: 1.5;
+}
+.pronum_tip {
+  width: 63px;
+  border: 1px solid #ff7e41;
+  float: right;
+  margin-top:9px;
+}
+.pronum_tip>div:first-child{
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: #ff7e41;
+}
+.pronum_tip>div:last-child{
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #ffffff;
+  background-image: linear-gradient(90deg, #f7955c 0%, #eb5c2f 100%);
+}

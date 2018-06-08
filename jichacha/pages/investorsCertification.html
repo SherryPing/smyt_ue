@@ -1,0 +1,62 @@
+<!--合格投资者认证-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/my.css" />
+		<link rel="stylesheet" href="../css/layer.css" />
+		<title>合格投资者认证</title>
+	</head>
+
+	<body>
+		<div id="investors" class="content" v-cloak>
+			<!--<div class="content-header">
+				<a href="../index.html" style="float:left;padding-left: 10px;"><img class="back" src="../images/back.jpg" /></a>
+				<span>基查查</span>
+			</div>-->
+			<div class="content-body" >
+				<div class="invest_card">
+					<div>根据《私募投资基金监督管理暂行办法》第四章第十四条规定："私募基金管理人、 私募基金销售机构不得向合格投资者之外的单位和个人募集资金,不得通过报刊、电台、 电视、互联网等公众传播媒体或讲座、报告会、分析会和布告、传单、手机短信、微信、 博客和电子邮件 等方式，向不特定对象推介。"
+					</div>
+					<div>基查查谨遵《私募投资基金监督管理暂行办法》之规定，只向特定的合格投资者宣传推介相关私募证券投资基金数据及相关咨询服务。
+					</div>
+				</div>
+				<div class="title"><text>本人承诺符合中国证监会规定的私募基金合格投资者的条件。</text></view>
+					<div class="detail">即：具备相应风险识别能力和风险承担能力，投资于单只私募基金的金额不低于100万元，且符合下列相关标准之一：
+					</div>
+					<div class="options">
+						<div bindtap="checkbox1" @click="toggle(1)">
+							<div class="checkBtn">
+								<span :class="{checkBoxac:active1}" ></span>
+								<!--<image wx:else src="../../../images/checkboxAct.png"></image>-->
+							</div>
+							<div>我承诺符合金融类资产不低于400万元；<label class="detail">(金融资产包括银行存款、股票、债券、基金份额、资产管理计划、银行理财产品、信托计划、保险产品、期货权益等)</label>
+								<div class="or">或</div>
+							</div>
+						</div>
+						<div bindtap="checkbox2" @click="toggle(2)">
+							<div class="checkBtn">
+								<span :class="{checkBoxac:active2}" ></span>
+								<!--<image wx:else src="../../../images/checkboxAct.png"></image>-->
+							</div>
+							<div>我承诺符合最近三年个人年均收入不低于40万元人民币。且具有2年以上投资经历;最近1年末净资产不低于1000万元的法人单位。
+							</div>
+						</div>
+					</div>
+					<div class="btns">
+						<button @click="submit">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/layer.js"></script>
+	<script src="../js/taglib.js"></script>
+	<script src="../js/vue/dist/vue.js"></script>
+	<script src="../js/vue-resource/dist/vue-resource.min.js"></script>
+	<script src="../js/investorsCertification.js"></script>
+</html>

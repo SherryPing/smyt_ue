@@ -1,0 +1,132 @@
+/* 合格投资者认证 */
+#investors .content-body{
+  padding: 14px 10px;
+  color: #3A3A3A;
+  letter-spacing:1px;
+}
+#investors .invest_card {
+  font-size: 12px;
+  background: #fafafa;
+  padding: 14px 10px;
+  margin-bottom:10px;
+}
+#investors .content-body .title{
+  font-size: 16px;
+}
+#investors .content-body .detail{
+  color:#7D7D7D ;
+  font-size: 14px;
+  margin-top: 13px;
+}
+#investors .options{
+  font-size: 14px;
+  color: #363636;
+  margin: 13px 0;
+}
+#investors .options>div {
+  display: flex;
+}
+#investors .options>div>div {
+  flex: 10;
+}
+#investors .options>div>.checkBtn {
+  flex:1;
+}
+#investors .content .btns{
+  margin-top: 10px;
+}
+#investors .content .btns button{
+  border: none;
+  background-color:#FF391A;
+  height: 35px;
+  color: white;
+  line-height: 35px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+#investors .or{
+  color: #FF391A;
+  font-size: 14px;  
+  margin: 8px 0;
+}
+/*
+  产品说明
+ * */
+#explain .myinfo_card1 .con1 {
+  background:#fff;
+  margin:0;
+  padding:0px 15px 5px 15px;
+  font-size:12px;
+  color:#7D7D7D;
+}
+
+#explain .myinfo_card2,.myinfo_card3 {
+  background: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom:8px;
+  overflow:hidden;
+  border-bottom:1px solid #f0f0f0;
+  border-top:1px solid #f0f0f0;
+}
+#explain .myinfo_card2 .title,.myinfo_card3 .title {
+  font-size:14px;
+  border-left:5px solid #FF391A;
+  padding-left:8px;
+  margin:14px 0;
+  color: #3a3a3a;
+  font-weight: 600;
+}
+#explain .myinfo_card2 .con1 {
+  padding: 0 10px 10px 10px;
+  font-size: 12px;
+  color: #7D7D7D;
+  margin-top:-5px;
+  position: static;
+}
+#explain .myinfo_card3 .subtitle {
+  padding: 0 10px;
+  font-size: 12px;
+  color: #3a3a3a;
+}
+#explain .myinfo_card3 .con1 {
+  padding: 4px 15px; 
+  font-size: 12px;
+  color: #7D7D7D;  
+}
+#explain .myinfo_card3 .con1>div{
+  margin-bottom: 5px;
+}
+#explain .myinfo_card3 .con:last-child {
+  padding: 4px 15px 10px 15px; 
+}
+#explain .redpot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #FF391A;
+  border-radius: 3px;
+  position:relative;
+  top:-2px;
+  margin-right:8px;
+}
+#explain .info-table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+#explain .info-table,.td,.td1,.td2{
+  border:1px solid #3a3a3a
+}
+#explain .td,#explain .td2{
+   padding: 5px 0 5px 5px;
+}
+#explain .td {
+  width: 28%;
+}
+#explain .td1 {
+  width: 17%;
+}
+#explain .td2 {
+  width: 55%;
+  text-align: left;
+}

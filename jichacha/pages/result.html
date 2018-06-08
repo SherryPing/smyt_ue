@@ -1,0 +1,226 @@
+<!--搜索结果页-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../js/skin/layer.css" />
+		<title>搜索结果</title>
+	</head>
+
+	<body>
+
+		<div id="result" ref="result" class="content" v-cloak>
+			<div ref="layer" id="layer">
+				<!--<div v-show="!more">
+					<span>已加载全部</span>
+				</div>-->
+				<div>
+					<img src="../images/loading.gif" alt="" />
+				</div>
+				<div>
+					<span>加载中</span>
+				</div>
+			</div>
+			<!--<div class="content-header">
+				<a href="../index.html" style="float:left;padding-left: 10px;"><img class="back" src="../images/back.jpg" /></a>
+				<span>基查查</span>
+			</div>-->
+			<div id="contentbody" id="perOverview" class="content-body">
+				<div style='padding-top:165px' class="search_list">
+					<div class='con'>
+						<div class="top_search">
+							<img class="search_btn" src="../images/search.png">
+							<input v-model="searchContent" @blur="search()" placeholder='请输入基金名称' />
+							<button plain='true' size="mini" @click="search(1)">搜索</button>
+						</div>
+						<div class='topTip'>搜索结果：{{searchAll}}</div>
+					</div>
+					<div class="tabview" style="border-bottom: 1px solid #f0f0f0;background-color: white;">
+						<div class="tab" :class="{active: isPublic}" @click="ispublic" id="public">公 募</div>
+						<div class="tab" :class="{active: !isPublic}" @click="isprivate" id="private">私 募</div>
+					</div>
+					<!-- 公募 -->
+					<div v-show="isPublic" name="public">
+						<div class="tabview2">
+							<div class="tab" :class="{active:cato}" id="publicProduct">
+								<div class="cato" @click="iscato('public','production')">产品</div><span> ({{publicFundNum}})</span>
+							</div>
+							<div class="tab" :class="{active:!cato}" id="publicCompany">
+								<div class="cato" @click="iscato('public','company')">公司</div><span> ({{publicOrgNum}})</span>
+							</div>
+						</div>
+						<div name="product">
+							<!--产品-->
+							<div v-show="cato" class="list">
+								<div class="card1" v-for="(item,index) in publicProList" @click="goFund(item.fund_type,item.fund_id)">
+									<div class="card_title">{{item.fund_name}}</div>
+									<div class="card_con">
+										<div class="card_inner">
+											<div>{{item.fund_type_name}}</div>
+											<div>基金类型</div>
+										</div>
+										<div v-if="item.fund_type=='0204'" class="card_inner" style="flex: 3;">
+											<div >{{item.return_10k}}</div>
+											<div>万份收益({{item.latest_nav_date}})</div>
+										</div>
+										
+										<div v-else class="card_inner" style="flex: 3;">
+											<div>{{item.latest_nav}}</div>
+											<div>单位净值({{item.latest_nav_date}})</div>
+										</div>
+										<div v-if="item.fund_type=='0204'" class="card_inner" style="flex: 3;">
+											<div v-if="item.d7_return_a>0" class="up">{{item.d7_return_a}}%</div>
+											<div v-else-if="item.d7_return_a<0" class="down">{{item.d7_return_a}}%</div>
+											<div v-else>{{item.d7_return_a}}</div>
+											<div>七日年化</div>
+										</div>
+										<div v-else class="card_inner">
+											<div v-if="item.y1_return>0" class="up">{{item.y1_return}}%</div>
+											<div v-else-if="item.y1_return<0" class="down">{{item.y1_return}}%</div>
+											<div v-else >{{item.y1_return}}</div>
+											<div>近一年收益</div>
+										</div>
+										
+										<div v-if="item.is_collection" class="card_inner2" @click="removeCollection($event,index,item.fund_id)">
+											<img src="../images/college2_act.png" style="width:25px;height:25px;margin-top:-3px">
+											<div>取消自选</div>
+										</div>
+										<div v-else class="card_inner2" @click="addCollection($event,index,item.fund_id)">
+											<img src="../images/college2.png" style="width:25px;height:25px;margin-top:-3px">
+											<div>加入自选</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--公司-->
+							<div v-show="!cato" class="list">
+								<div class="card1" v-for="item in publicComList" @click="goCompany('public',item.org_id)">
+									<div class="card_title">{{item.org_name}}</div>
+									<div class="card_con tc">
+										<div class="card_com_inner">
+											<div>{{item.foundation_date}}</div>
+											<div>成立日期</div>
+										</div>
+										<div class="card_com_inner">
+											<div>{{item.total_fund_num}}</div>
+											<div>管理产品数量</div>
+										</div>
+										<div class="card_com_inner">
+											<div class="ellipse">{{item.core_fund_name}}</div>
+											<div>代表产品</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 私募 -->
+					<div v-show="!isPublic" name="private">
+						<div class="tabview2">
+							<div class="tab" :class="{active:priCato}" id="privateProduct">
+								<div class="cato" @click="iscato('private','production')">产品</div><span> ({{privateFundNum}})</span>
+							</div>
+							<div class="tab" :class="{active:!priCato}" id="privateCompany">
+								<div class="cato" @click="iscato('private','company')">公司</div><span> ({{privateOrgNum}})</span>
+							</div>
+						</div>
+						<div name="product">
+							<!--产品-->
+							<div v-show="priCato" class="list">
+								<div class="card1" v-show="qualify" v-for="(item,index) in privateProList" @click="goFund('private',item.fund_id)">
+									<div class="card_title">{{item.fund_name}}</div>
+									<div class="card_con">
+										<div class="card_inner">
+											<div>{{item.fund_type_name}}</div>
+											<div>基金类型</div>
+										</div>
+										<div class="card_inner" style="flex: 3;">
+											<div>{{item.latest_nav}}</div>
+											<div>单位净值({{item.latest_nav_date}})</div>
+										</div>
+										<div class="card_inner">
+											<div v-if="item.y1_return>0" class="up">{{item.y1_return}}%</div>
+											<div v-else-if="item.y1_return<0" class="down">{{item.y1_return}}%</div>
+											<div v-else >{{item.y1_return}}</div>
+											<div>近一年收益</div>
+										</div>
+										<div v-if="item.is_collection" class="card_inner2" @click="removeCollection($event,index,item.fund_id)">
+											<img src="../images/college2_act.png" style="width:25px;height:25px;margin-top:-3px">
+											<div>取消自选</div>
+										</div>
+										<div v-else class="card_inner2" @click="addCollection($event,index,item.fund_id)">
+											<img src="../images/college2.png" style="width:25px;height:25px;margin-top:-3px">
+											<div>加入自选</div>
+										</div>
+									</div>
+								</div>
+								<div class="card1" v-show="!qualify" v-for="(item,index) in privateProList" @click="goFund('private',item.fund_id)">
+									<div class="qua_con tl">
+										<div class="qualify_tip tc">
+											<div>
+												<img style="width: 14px;height: 18px;" src="../images/qualify.png">
+												<span style="color: red;">认证可见</span>
+											</div>
+										</div>
+										<div class="qua_bottom">
+											<div>基金类型</div>
+											<div>单位净值({{item.latest_nav_date}})</div>
+											<div>近一年收益</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--公司-->
+							<div v-show="!priCato" class="list">
+								<div class="card1" v-show="qualify" v-for="item in privateComList" @click="goCompany('private',item.org_id)">
+									<div class="card_title">{{item.org_name}}</div>
+									<div class="card_con tc">
+										<div class="card_com_inner">
+											<div>{{item.foundation_date}}</div>
+											<div>成立日期</div>
+										</div>
+										<div class="card_com_inner">
+											<div>{{item.total_fund_num}}</div>
+											<div>管理产品数量</div>
+										</div>
+										<div class="card_com_inner">
+											<div class="ellipse">{{item.core_fund_name}}</div>
+											<div>代表产品</div>
+										</div>
+									</div>
+								</div>
+								<div class="card1" v-show="!qualify" v-for="item in privateComList" @click="goCompany('private',item.org_id)">
+									<div class="qua_con tc">
+										<div class="qualify_tip">
+											<div>
+												<img style="width: 14px;height: 18px;" src="../images/qualify.png">
+												<span style="color: red;">认证可见</span>
+											</div>
+										</div>
+										<div class="qua_bottom">
+											<div>成立日期</div>
+											<div>管理产品数量</div>
+											<div>代表产品</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<span id="november"></span>
+			</div>
+		</div>
+		<script src="../js/jquery.js"></script>
+		<script src="../js/layer.js"></script>
+		<script src="../js/taglib.js"></script>
+		<script src="../js/vue/dist/vue.js"></script>
+		<script src="../js/vue-resource/dist/vue-resource.min.js"></script>
+		<script src="../js/result.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!--相似基金-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/layer.css" />
+		<title>相似基金</title>
+	</head>
+
+	<body>
+		<div id="similarfunds" v-cloak>
+			<div ref="layer" id="layer" style="display: block;top:50%;">
+				<div>
+					<img src="../images/loading.gif" alt="" />
+				</div>
+				<div>
+					<span>加载中</span>
+				</div>
+			</div>
+			<!--<div class="content-header">
+				<a @click="back()" style="float:left;padding-left: 10px;"><img class="back" src="../images/back.jpg"/></a>
+				<span>相似基金</span>
+			</div>-->
+			<div  class="content-body search_list" >
+				<div v-show="state" class="list">
+					<div class="card1" v-for="item in listData" @click='gotoDetail(item.fund_id)' >
+						<div class="card_title">{{item.fund_name}}</div>
+					      <div class="card_con">
+					        <div class="card_inner">
+					          <div>{{item.fund_type_name}}</div>
+					          <div>基金类型</div>
+					        </div>
+					        <div class="card_inner">
+					          <div>{{item.latest_nav}}</div>
+					          <div>单位净值({{item.latest_nav_date}})</div>
+					        </div>
+							<div class="card_inner2">
+								<div>
+								<image v-for="(itm,idx) in [1,2,3,4,5]"  v-if="idx<item.starnum" class="start" src="../images/star_act.png" style='width: 15px; height: 14px; margin - top:-3px'></image><image v-if="item.starhalfnum==1" class="start" src="../images/star_half.png" style='width: 15px; height: 14px; margin - top:-3px'></image>        		</div>
+								<div>相似度</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div v-show="!state" class="LoadView">
+					<image class="loading" src="../images/load.png"></image>
+					<div>暂无数据</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/jquery.js"></script>
+		<script src="../js/layer.js"></script>
+		<script src="../js/taglib.js"></script>
+		<script src="../js/vue/dist/vue.js"></script>
+		<script src="../js/vue-resource/dist/vue-resource.min.js"></script>
+		<script src="../js/similarfunds.js"></script>
+	</body>
+
+</html>

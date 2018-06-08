@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+	<title>注册</title>
+	<style type="text/css">
+	html {margin:0 auto;padding:0;height: 100%;}
+	body{background-color:#ffffff;overflow:hidden;font-family:"PingFangSC-Medium";font-size: 16px;width:100%;line-height: 1.4;padding:0px;margin:0px;background-image:url("assets/@1/bottomImg.png");background-position:50% 100%;background-repeat:no-repeat;background-size:100%;}
+	.header {margin-top: 0px;width:100%;height:38%;}
+	.header .imgGroup {text-align:center;idth:100%;margin-top:13%;}
+	.header span {font-family:PingFangSC-Medium;color:#708091;font-size: 16px;margin:1px;line-height:16px;}
+	.content p{line-height:1.8}
+	.right{float:right;}
+	.left{float:left;}
+	.align-center{text-align:center;}.align-right{text-align:right;}
+	a:visited{color:#551a8b;}
+	a{text-decoration: none}
+	a:-webkit-any-link{cursor:pointer;}
+	.content p{line-height:1.8}
+	#page_login{padding-top:20px;background:#ffffff}
+	#page_login a{color:#4285f4}
+	input {font-size: 14px;}
+	#page_login .input-wrapper{padding-left:18px;margin-bottom:5px;background:#ffffff;list-style-type: none}
+	#page_login .input-wrapper li.i-username{padding:8px 30px;width:80%;height:35px;line-height:35px;border-bottom:0.5px solid #D3D3D3;background:url(assets/@2/phone.png) no-repeat 0 -99999px / 18px auto;overflow:hidden;background-position:0 16px}
+	#page_login .input-wrapper li.i-password{padding:8px 30px;width:80%;height:35px;line-height:35px;border-bottom:0.5px solid #D3D3D3;background:url(assets/@2/password.png) no-repeat 0 -99999px / 18px auto;overflow:hidden;background-position:0 16px}
+	#page_login .input-wrapper li.i-usercode{padding:8px 30px;width:80%;height:35px;line-height:35px;border-bottom:0.5px solid #D3D3D3;background:url(assets/@2/code.png) no-repeat 0 -99999px / 18px auto;overflow:hidden;background-position:0 16px}
+	#page_login .input-wrapper li input{padding:0;border:0 none;width:100%;height:40px;line-height:40px;outline:0 none;background:#ffffff;}
+	#code_img{width:100px;height:50px;position:absolute;right:0;top:0}
+	#page_login .btn-login{border:1px solid black;width:307px;padding:0;border:0 none;color:#ffffff;height:48px;border-radius:6px;background-image:url("assets/@1/button.png");text-align: center}
+	#page_login .auto-login{color:#4285f4}
+	.rmflag-ico{display:inline-block;vertical-align:middle;margin:-2px 4px 0 0;width:18px;height:18px;border-radius:50%;background:url("assets/@1/记住密码默认.png");background-size:15px 15px}
+	#page_login .auto-login input[name=rmflag]:checked~
+	.ischecked{background:url("assets/@1/记住密码.png")}
+	.remb{opacity: 0.4;font-family:'PingFangSC-Regular';color: #3A3A3A;text-align: justify;line-height: 18px;}
+	.loginBtn {background-image:url('assets/@1/button.png');width:307px;height:48px;text-align:center;line-height:48px;color:white;margin:0 auto}
+	#page_login .sms-login{margin-top:40px}
+	.form-control{padding-bottom:103px;margin-top:15px;pxcolor:#999;padding:0 9px;}
+	.form-control input[type=checkbox]{margin:0 5px;}
+	.clearfix:before,.clearfix:after{content:" ";display:table;}.clearfix:after{clear:both;}
+	.checkcode{border: 1px solid #F14F2F;position:absolute;text-align:center;font-size:12px;font-family:'PingFangSC-Regular';background-color:#FFFFFF;width:100px;height:30px;line-height:28px;border-radius: 100px;right:5%;top:230px;outline: none;}
+	.page_title {font-size: 15px;height: 20px;color: #707F90;font-weight: 600;}
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/layer.js"></script>
+<script src="js/taglib.js"></script>
+<script src="js/vue/dist/vue.js"></script>
+<script src="js/vue-resource/dist/vue-resource.min.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div class="header">
+			<div class="imgGroup">
+				<img @click="back()" src="assets/@2/logo.png" alt="" style="margin:0 auto;width: 85px;height: 81px;">
+				<p class="page_title"><span>查基金，理好财！</span></p>
+			</div>
+
+			<div class="content" id="page_login">
+				<form method="" action="" id="userForm">
+					<ul class="input-wrapper">
+						<li class="i-username" >
+							<input type="text" name="user_name" id="user_name" v-model="user_name" placeholder="请输入您的手机号"/>
+							<button v-if="codeDisabled" type="button" id="getCode" class="checkcode" style="color:#F14F2F" :style="{backgroundColor : btnColor}">{{codeText}}</button>
+							<button v-else id="getCode" type="button" class="checkcode" @click="getCheckCode" style="color:#F14F2F" >{{codeText}}</button>
+						</li>
+						<li class="i-usercode" >
+							<input type="text" name="user_name2" id="user_name2" v-model="code" placeholder="请输入验证码"/>
+						</li>
+						<li class="i-password">
+							<input type="password" name="password" id="password" v-model="password" placeholder="请设置6-16位数字或字母的密码" />
+						</li>
+
+					</ul>
+					<div class="form-control">
+						<a href="javascript:void(0)">
+							<div class="loginBtn" @click="register">注册</div>
+						</a>
+					</div>
+					<div class="form-control align-center sms-login">
+						<a href="login.html">
+							<!--这里跳转register.html-->
+							<span style="color:#F14F2F;font-size:12px;line-height: 12px;">已有账号？立即登录</span>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		var regUrl = urlpath + '/h5_register';
+		var checkCodeUrl = urlpath + "/get_message_code";
+		var vm = new Vue({
+			el : "#main",
+			data: {
+				user_name : "",
+				code  : "",
+				password : "",
+				username : "",
+				codeText: "获取验证码",
+				codeDisabled:false,
+			},
+			
+			methods : {
+				back:function(){
+					window.history.go(-1)
+				},
+				getCheckCode:function(){
+					var that = this;
+					that.codeDisabled=true;
+					if(!this.user_name.length){
+						//未输入手机号码,无法操作验证码按钮
+						layer.msg("请输入您的手机号");
+						
+					}else{
+						
+					this.$http.get(checkCodeUrl,{
+						params : {
+							mobile : this.user_name
+						}
+					}).then(function(res){
+						if(res.body.success){
+							flag = res.body;
+							if(flag.success){
+								layer.msg("短信发送成功，请注意查收");
+							}
+							 var number = 60;
+							 that.codeText="重新获取(" + number + ")";
+			                var int=setInterval(function() {
+			                    if(number > 0) {
+			                        number -= 1;
+			                        that.codeText="重新获取(" + number + ")";
+			                    } else {
+			                        that.codeText="重新获取";
+			                        that.codeDisabled=false;
+			                        clearInterval(int);
+			                    }
+			                }, 1000)
+		                }else{
+		                	layer.msg(res.body.message);
+		                }
+		                
+						//根据flag.success获取验证码成功/失败 
+					},function(err){
+						console.log(err.status)
+					})
+					}
+				},
+				register:function(){
+					var reg = /^[a-zA-Z\d]{6,16}$/;
+					if(!this.user_name){layer.msg("请输入您的手机号")}else
+					if(!this.password){layer.msg("请设置您的登录密码！")}else
+					if(!this.code){layer.msg("请输入验证码！")}else
+					if(!reg.test(this.password)){layer.msg("请设置6-16位数字或字母格式的密码")}else{
+						this.$http.post(regUrl,this.userInfo).then(function(res){
+							flag = res.body;
+							if(flag.success){
+								//注册成功,跳转到登陆页面
+								layer.msg("注册成功");
+								setTimeout(function(){
+									window.location.href = "login.html";
+								},500)
+							}else{
+								//提示错误信息flag.message
+								layer.msg(flag.msg);
+							}
+						},function(err){
+							console.log(err.status)
+						})
+					}
+				},
+			},
+			computed:{
+				userInfo:function(){
+					return {
+						message_code : this.code,
+						mobile : this.user_name,
+						user_name : "",
+						password  : this.password
+					}
+				},
+				btnColor:function(){
+					bgcolor = this.user_name.length ? '#FFFFFF' : '#E0E0E0'
+					return bgcolor
+				}
+			}
+		})
+
+		</script>
+	</body>
+	</html>

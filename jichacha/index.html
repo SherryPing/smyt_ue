@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+		<link rel="stylesheet" href="css/main.css" />
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<link rel="stylesheet" type="text/css" href="css/layer.css" />
+		<title>基查查</title>
+	</head>
+	
+	<body>
+		<div id="main" class="content" v-cloak>
+			<div ref="layer" id="layer">
+				<div>
+					<img src="./images/loading.gif" alt="" />
+				</div>
+				<div>
+					<span>加载中</span>
+				</div>
+			</div>
+			<!--<div class="content-header">
+				基查查
+			</div>-->
+			<div class="content-body">
+				<!--主页-->
+				<div class="view-layer" ref="main" style="display: block;">
+					<div class='page_top'>
+						<div class="page_hd">
+							<img class="bg_img" src="images/main_bg.png">
+							<div class="page_logo">
+								<div>
+									<img style="width:85px;height:81px;" src="images/logo.png">
+								</div>
+							</div>
+							<div class="page_title"><span>查基金, 理好财!</span></div>
+						</div>
+						<div class="page_con">
+							<input class="page_search" @blur="inputBlur()" v-model="searchContent" placeholder="请输入基金名称/公司名称" />
+							<img class="search_go" @click="inputBlur()" src="images/go.png" >
+						</div>
+					</div>
+					<div class="page_middle">
+						<div class="navi">
+							<a href="./pages/prclist.html?type=private">
+								<img src="images/main_pg3.png" style="width:27px;height:26px;margin-bottom:2px;">
+								<div style="color: #9a9a9a;">私募基金</div>
+							</a>
+						</div>
+						<div class="navi">
+							<a href="./pages/prclist.html?type=public">
+								<img src="images/main_pg2.png" style="width:25px;height:29px;">
+								<div style="color: #9a9a9a;">公募基金</div>
+							</a>
+						</div>
+						<div class="navi">
+							<a href="./pages/comlist.html">
+								<img src="images/main_pg1.png" style="width:38px;height:27px;margin-bottom:2px;">
+								<div style="color: #9a9a9a;">基金公司</div>
+							</a>
+						</div>
+					</div>
+					<div class="page_bottom">
+						<div style="color:#F14F2F">热门基金：</div>
+						<div v-for="item in hotFund" @click="fundDetail(item.m_or_h,item.fund_id)" style="color: #9a9a9a;">{{item.fund_name}}</div>
+					</div>
+				</div>
+				<!-- 自选 -->
+				<div class="view-layer" ref="autoShape" style="padding-bottom: 60px;">
+					<div class="search_list">
+						<div class="tabViewlist">
+							<div class="tab" id="public" :class="{active:!isPrivate}" @click="togglepp(1)">公募</div>
+							<div class="tab" id="private" :class="{active:isPrivate}" @click="togglepp(2)">私募</div>
+						</div>
+						<div class="tab-list-content">
+							<div v-show="!isPrivate" class="list">
+								<div class="card1" v-show="publicState" v-for="(item,index) in publicProList" @click="goDetail(item.fund_type,item.reg_code)" v-cloak>
+									<div class="card_title" v-cloak>
+										{{item.fund_name}}({{item.reg_code}})
+									</div>
+									<div class="card_con">
+										<div class="card_inner">
+											<div v-cloak>{{item.fund_type_name}}</div>
+											<div>基金类型</div>
+										</div>
+										<div v-if="item.fund_type=='0204'" class="card_inner" style="flex: 3;">
+											<div>{{item.return_10k}}</div>
+											<div>万份收益({{item.latest_nav_date}})</div>
+										</div>
+										<div v-else class="card_inner" style="flex: 3;">
+											<div>{{item.latest_nav}}</div>
+											<div>单位净值({{item.latest_nav_date}})</div>
+										</div>
+										<div v-if="item.fund_type=='0204'" class="card_inner">
+											<div>{{item.d7_return_a}}%</div>
+											<div>7日年化</div>
+										</div>
+										<div v-else class="card_inner">
+											<div>{{item.y1_return}}</div>
+											<div>近一年收益</div>
+										</div>
+										<div class="card_inner2" @click.stop="removeCollection(item.fund_id,index)">
+											<img src="images/college2_act.png" style="width:25px;height:25px;margin-top:-3px">
+											<div>取消自选</div>
+										</div>
+									</div>
+								</div>
+								<div class="load-div" v-show="!publicState">
+									<img src="images/load.png" />
+									<div>暂无数据</div>
+								</div>
+							</div>
+							<!--私募-->
+							<div v-show="isPrivate" class="list">
+
+								<div class="card1" v-show="privateState" v-for="(item,index) in privateProList" @click="goDetail('private',item.fund_id)">
+									<div v-show="isPer">
+										<div class="card_title">
+											{{item.fund_name}}({{item.reg_code}})
+										</div>
+										<div class="card_con">
+											<div class="card_inner">
+												<div>{{item.fund_type_name}}</div>
+												<div>基金类型</div>
+											</div>
+											<div class="card_inner" style="flex: 3;">
+												<div>{{item.latest_nav}}</div>
+												<div>单位净值({{item.latest_nav_date}})</div>
+											</div>
+											<div class="card_inner">
+												<div>{{item.y1_return}}</div>
+												<div>近一年收益</div>
+											</div>
+											<div class="card_inner2" @click.stop="removeCollection(item.fund_id,index)">
+												<img src="images/college2_act.png" style="width:25px;height:25px;margin-top:-3px">
+												<div>取消自选</div>
+											</div>
+										</div>
+									</div>
+									<div v-show="!isPer">
+										<div class="card_con">
+											<div class="card_con_qualify tc">
+												<div class="ellipse" style="margin-left: 10px;color: #3A3A3A;">{{item.fund_name}}</div>
+											</div>
+											<div class="card_con_qualify">
+												<div>
+													<img style="width: 14px;height: 18px;" src="images/qualify.png">
+													<span style="color: red;">认证可见</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="load-div" v-show="!privateState">
+									<img src="images/load.png" />
+									<div>暂无数据</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 我的 -->
+				<div class="view-layer" ref="my" style="background-color: #fafafa;min-height: calc(100vh - 40px);">
+					<div class="my_top tc ">
+						<img class="bg_img" src="images/my_bg.png" style="width: 100%;height: 206px;">
+						<img class="bg_logo" src="images/default.png" style="width: 84px;height: 84px;">
+						<div class="userName">用户 : {{nickName}}</div>
+					</div>
+					<div class="my_list">
+						<a style="color: black;" href="pages/investorsCertification.html">
+						<div>
+							
+								<img src="images/my_index1.png">
+								<span>合格投资者认证</span>
+								<img src="images/next.png" class="next">
+							
+						</div>
+						</a>
+						<a style="color: black;" href="pages/explain.html">
+							<div>								
+								<img src="images/my_index2.png" style="width: 24px;height: 24px;">
+								<span>产品说明</span>
+								<img src="images/next.png" class="next">								
+							</div>
+						</a>
+						<a class="about-we" href="https://www.fofpower.com/">
+							<div>								
+								<img src="images/my_index3.png">
+								<span>关于我们</span>
+								<img src="images/next.png" class="next">								
+							</div>
+						</a>
+						<div class="exit-div">
+							<button class="exit-btn" @click="exitAccount">退出登录</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div id="tabView" class="tab-view">
+				<div>
+					<div v-for="(item,index) in tabviewbtn" @click="tabtoggle(index)">
+						<div><img :src="item.src" alt="" /></div>
+						<div><span :class="{active:index==itemIndex}">{{item.name}}</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/taglib.js"></script>
+		<script src="js/vue/dist/vue.js"></script>
+		<script src="js/layer.js"></script>
+		<script src="js/vue-resource/dist/vue-resource.min.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+
+</html>

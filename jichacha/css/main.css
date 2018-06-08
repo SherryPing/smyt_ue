@@ -1,0 +1,768 @@
+[v-cloak] { display: none; }
+body{
+	margin: 0;
+	padding: 0;
+	font-family:  Arial,Helvetica,sans-serif;
+}
+.content{
+		min-height: 100%
+}
+.content-header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+	line-height: 2.5;
+	height: 40px;
+	background-color: #F14F2F;
+	z-index: 111;
+}
+.content-body .view-layer{
+	min-height: 100%;
+	display: none;
+}
+.tab-view{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: #F8F8F8;
+	border-top: 1px solid #d3d3d3;
+}
+.tab-view img{
+	text-align: center;
+	width: 24px;
+	height: 24px;
+}
+.tab-view span{
+	font-size: 12px;
+}
+.tab-view>div{
+	overflow: hidden;
+	height: 60px;
+	display:flex;
+}
+.tab-view>div>div{
+	flex: 1;
+	text-align: center;
+	padding-top: 8px;
+}
+/**主页**/
+.page_top {
+  height: 220px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #F7F8FA; 
+}
+.page_hd {
+  text-align: center;
+  padding-top: 22px;
+}
+.page_hd .bg_img{
+  position: absolute;
+  top: 70px;
+  left: 25px;
+  height: 133px;
+  z-index: auto;
+}
+.page_title {
+  position: relative;
+  font-size: 15px;
+  top: 5px;
+  height: 20px;
+  color: #707F90;
+  font-weight: 600;
+  /* margin-top: -58rpx; */
+}
+.tc {
+	text-align: center;
+}
+button {
+	outline: none;
+}
+.page_con {
+  position: relative;
+  text-align: center;
+  padding: 20px 35px;
+}
+.page_search {
+  width: 75%;
+  height: 33px;
+  border: 1px solid #d7d7d7;
+  font-size: 14px;
+  text-align: left;
+  color: #363636;
+  padding: 0 43px 0 33px;
+  background:#fff url(../images/search.png) no-repeat 5px;
+  background-size: 18px 19px;
+}
+.page_search:focus {
+	border: 1px solid #F14F2F;
+}
+.page_logo div{
+  position: relative;
+  display: inline-block;
+  background:#F7F8FA;    
+}
+.search_btn {
+  position: absolute;
+  top: 24px;
+  left: 42px;
+  width: 18px;
+  height: 19px;
+  line-height: 28px;
+}
+.search_go {
+  position: absolute;
+  top: 23px;
+  left: calc(75% + 27px);
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+}
+.tips {
+  margin: 23px 0;
+}
+.tips div{
+  display: inline-block;
+  color: #9a9a9a;
+}
+.tips .tips_title {
+  font-size: 14px;
+  width: 50px;
+  text-align: left;
+}
+.tips .tips_con div {
+  height: 26px;
+  line-height: 26px;
+  border: 1px solid #d7d7d7;
+  font-size: 12px;
+  margin-right: 10px;
+  padding: 0 6px;
+}
+
+.page_middle {
+  display: flex;
+  height: 110px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0 15px;
+  text-align: center;
+}
+.navi {
+  flex: 1;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #9a9a9a;
+}
+
+.page_bottom {
+  font-size: 14px;
+  padding: 42px 35px;
+  color: #686868;
+}
+.page_bottom div {
+  height: 30px;
+  line-height: 30px;
+}
+.noautBtn{
+  margin-top: 40px;
+  display: inline-block;
+  width: 60px;
+  line-height: 30px;
+  height: 30px;
+  border-color: #F14F2F !important;
+  font-size: 24rpx;
+  color: #F14F2F !important;
+  letter-spacing: -0.17px;
+  text-align: center;
+}
+/* 自选 */
+#auto .tabView {
+  position: fixed;
+  top: 0;
+  left: 0; 
+}
+.noauthorized{
+  padding: 120px 20px;
+  text-align: center;
+}
+.noauthorized .infotop{
+  font-size: 14px;
+  color: #7D7D7D;
+  letter-spacing: -0.17px;
+  text-align: center;
+}
+.noauthorized .infoBottom{
+  opacity: 0.55;
+  font-size: 14px;
+  color: #7D7D7D;
+  letter-spacing: -0.15px;
+  text-align: center;
+}
+.noauthorized .noautBtn{
+  margin: 20px 0;
+  display: inline-block;
+  width: 320rpx;
+  line-height: 35px;
+  height: 35px;
+  border-color: #F14F2F;
+  font-size: 16px;
+  color: #F14F2F;
+  letter-spacing: -0.17px;
+  text-align: center;
+}
+.qua_bottom {
+  display: flex;
+}
+.qua_bottom div{
+  flex: 1;
+  font-size: 10px;
+  color:rgba(125, 125, 125, 0.5);
+  height:10px;
+  line-height:10px;
+}
+.qua_con.tl .qua_bottom div:last-child {
+  flex:0.45;
+}
+/* 搜索列表基金类型tab */
+.tabViewlist {
+  /* position: fixed;
+  top: 176rpx;
+  left: 0; */
+  width: 100%;
+  border-bottom:1px solid #f0f0f0;
+  text-align: center;
+  font-size: 14px;
+  color: #708091;
+  background: #ffffff; 
+}
+.tabViewlist .tab {
+  display:inline-block;
+  width:60px;
+  height:47px;
+  line-height:60px;
+  margin:0 23px; 
+}
+.tabViewlist .tab.active {
+  border-bottom:3px solid #F14F2F;
+  color: #F14F2F;
+}
+/* 我的 */
+page {
+  background: #fafafa;
+}
+.my_top {
+  position: relative;
+  height: 200px;
+}
+.bg_img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.bg_logo {
+  position: absolute;
+  top: 25px;
+  left: calc((100% - 83px)/2);
+  width: 83px;
+  height: 83px;
+  border-radius: 42px;
+  z-index: 100;
+}
+.userName {
+  position: relative;
+  top: 107px;
+  font-size: 16px;
+  color: #ffffff;
+  height: 25px;
+  line-height: 25px;
+  z-index: 100;
+}
+/* 列表 */
+.my_list {
+  position: relative;
+  width: 100%;
+  background: #fafafa;
+  padding:16px 0;
+}
+.my_list>a {
+  position: relative;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  font-size: 14px;
+  color: #3a3a3a;
+  border-bottom: 1px solid #fafafa;
+  background:#ffffff;
+  padding-left:10px;
+}
+.my_list>a img:first-child {
+  width: 24px;
+  height: 21px;
+  position: relative;
+  top: 5px;
+  margin-right: 8px;
+}
+.my_list>a .next {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 10px;
+  height: 16px;
+}
+.no-authorized button{
+  display: inline-block;
+  font-size:14px;
+  margin-top: 15px;
+  width: 130px;
+  text-align: left;
+  padding-left: 0;
+  height: 30px;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+/* 覆盖边框  */
+.no-authorized button::after{
+  border: none;
+}
+.noautBtn{
+  color: white !important;
+  border: none !important;
+  top: 110px;
+  z-index: 111;
+}
+/* 覆盖边框  */
+.no-noautBtn button::after{
+  border: none;
+}
+/* 产品列表 */
+.search_list .list {
+  padding: 15px 10px;
+}
+.search_list .card1 {
+  padding: 10px 12px 12px 14px;
+  margin-bottom: 10px;
+  background: #fafafa;
+}
+.search_list .card2 {
+  padding: 5px 10px 10px 10px;
+  /*margin-bottom: 10px;*/
+  background: #fafafa;
+}
+.search_list .card2:nth-child(even){
+	background: #fff;
+}
+.search_list .card_title {
+  font-size: 16px;
+  color: #3a3a3a;
+}
+.search_list .card_con {
+  display: flex;
+  padding-top: 9px;
+  text-align: center;
+}
+.search_list .card2 .card_con {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+}
+.search_list .card_con>div {
+  flex: 2.2;
+  font-size: 14px;
+  color: #7d7d7d;
+}
+.search_list .card_con .card_inner div:first-child,.search_list .card_con .card_inner2 div:first-child  {
+	height:25px;
+	line-height:25px;
+}
+.search_list .card_con .card_inner div:last-child,.search_list .card_con .card_inner2 div:last-child {
+	font-size: 10px;
+	color:rgba(125, 125, 125, 0.5);
+	height:12px;
+	line-height:12px;
+}
+.search_list .card2 .card_con>div {
+  flex: 2.2;
+  font-size: 14px;
+  color: #3a3a3a;
+}
+
+.search_list .card_con .card_con_sin div {
+	height: 17px;
+	line-height: 32px;
+}
+ .search_list .card_con>div:first-child {
+  flex: 2.2;
+  text-align: left;
+  overflow: hidden;
+  
+} 
+.card_con .card_con_dou div:last-child {
+	color:#7d7d7d;
+	font-size:12px;
+	height:12px;
+	line-height:14px;
+}
+
+/*搜索结果页*/
+
+/* 搜索列表页 */
+.con {
+  position: fixed; 
+  top: 0;
+  left: 0; 
+  width: 100%;
+  height: 96px;
+  font-size:14px;
+  z-index: 10;
+}
+/* 头部搜索框 */
+.top_search {
+  position: relative;
+  height: 25px;
+  line-height: 25px;
+  padding: 20px 10px;
+  background: #F14F2F;
+}
+#result .search_btn {
+  position: absolute;
+  top: 26px;
+  left: 18px;
+  width: 18px;
+  height: 19px;
+  line-height: 28px;
+}
+.top_search input {
+  float: left;
+  width: 67%;
+  height: 33px;
+  line-height: 33px;
+  border-radius:  5px;
+  border: none;
+  background: #fff;
+  color: #363636;
+  padding:0 33px;
+  font-size: 14px;
+}
+.top_search button{
+  float: left;
+  width: calc(33% - 76px);
+  margin-left: 10px;
+  height: 33px;
+  line-height: 33px;
+  color: #fff;
+  border: none;
+  background-color: #F14F2F;
+  padding: 0;
+  font-size: 14px;
+}
+.topTip {
+  height: 30px;
+  line-height: 30px;
+  background: #DCDFE4;
+  font-size: 12px;
+  color: #363636;
+  padding-left: 15px;
+}
+/* 基金类型tab */
+#result .tabview {
+  position: fixed;
+  top: 95px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+#result .tabview .tab {
+display:inline-block;
+width:40px;
+font-size: 12px;
+height:30px;
+line-height:30px;
+margin:0 14px;
+
+}
+.tabview .tab.active {
+	border-bottom:3px solid #F14F2F;
+	color:#F14F2F;
+}
+
+/* 基金类型下产品公司二级tab */
+#result .tabview2 {
+  position: fixed;
+  top: 125px;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  color: #7d7d7d;
+  margin-top: 4px;
+  padding-bottom: 8px;
+  background: #ffffff; 
+}
+#result .tabview2 .tab {
+  display:inline-block;
+  min-width:60px;
+  height:37px;
+  line-height:50px;
+  margin:0 0 0 12px; 
+}
+#result .tabview2 .tab .cato {
+  display:inline-block;
+  padding:0;
+  height:32px;
+  line-height:45px;
+}
+#result .tabview2 .tab.active .cato {
+  border-bottom:3px solid #F14F2F;
+  color: #F14F2F;
+}
+#result .tabview2 .tab.active .cato{
+  border-bottom:3px solid #F14F2F;
+  color: #F14F2F;
+}
+#result .tabview2 .tab.active .cato+span {
+  color: #F14F2F;
+}
+#result .tabview2 .normal {
+  color: rgba(125, 125, 125, 0.5);
+}
+
+#result .qua_bottom {
+  display: flex;
+}
+#result .qua_bottom div{
+  flex: 1;
+  font-size: 10px;
+  color:rgba(125, 125, 125, 0.5);
+  height:10px;
+  line-height:10px;
+}
+#result .qua_con.tl .qua_bottom div:last-child {
+  flex:0.45;
+}
+
+#result .noauthorized{
+  padding: 60px 20px;
+  text-align: center;
+}
+.checkBtn span {
+	position:relative;
+	display: inline-block;
+	top:4px;
+	width:20px;
+	height:20px;
+	background-image: url(../images/checkbox.png);
+	background-size:20px;
+}
+.content .btns button {
+	width: 100%;
+	border:none;
+	background-color:#FF391A;
+	height:35px;
+	color:white;
+	line-height:35px;
+	font-size:16px;
+	border-radius:5px;
+}
+a{
+	text-decoration:none;
+}
+.about-we:link,.about-we:visited,.about-we:hover,.about-we:active{
+	color: #3A3A3A;
+}
+#layer{
+	position: fixed;
+	display: none;
+	top: 68%;
+	left: calc(50% - 30px);
+　	color:#fff;
+	background:transparent;
+	background-color: #363636;
+	width: 80px;
+	height: 60px;
+	text-align: center;
+	border-radius: 5px;
+	opacity: 0.8;
+	padding-top: 15px;
+	z-index: 111;
+}
+#layer img{
+	width: 20px;
+	height: 20px;
+}
+#layer>div>div{
+	height: 30px;
+}
+#layer span{
+	color: white;
+	font-size: 14px;
+}
+#comList .tabview{
+	position: fixed;
+	/*top: 40px;*/
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+#comList .tabview>.tab{
+	display:inline-block;
+	width:60px;
+	height:47px;
+	line-height:60px;
+	margin:0 28px;
+}
+.ellipse {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.fr{
+	float: right;
+}
+.detail-title-middle span {
+	font-size:12px;
+	background-color:rgba(246,237,228,0);
+	line-height:12px;
+	color:#F14F2F;
+	padding:1px 12px;
+	opacity:0.8;
+	border:1px solid #F14F2F;
+	border-radius:4px;
+}
+.back{
+	position: absolute;
+	margin-top: 13px;
+	float: left;
+	width: 8px;
+	height: 14px;
+}
+.checkBoxac{
+	background-image: url(../images/checkboxAct.png) !important;
+}
+.tab-view .active{
+	color: #F14F2F;
+}
+#main .search_list .card_con>div:first-child{
+	flex:2.2 !important;
+}
+/* 列表页最常访问等小标签 */
+.card_tip {
+  margin-top: 9px;
+  font-size: 12px;
+}
+.card_tip div{
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 2px;
+  margin-right: 5px;
+  text-align: center;
+}
+.red_tip {
+  border: 1px solid #de0606;
+  color: #de0606;
+  background-color: rgba(222,6,6,0.2);
+}
+.gold_tip {
+  border: 1px solid #e59133;
+  color: #e59133;
+  background-color: rgba(229,145,51,0.2);
+}
+.blue_tip {
+  border: 1px solid #5284c6;
+  color: #5284c6;
+  background-color: rgba(82,132,198,0.2);
+}
+.up {
+  color: #de0606 !important;
+}
+.down {
+  color: #48b79f !important;
+}
+.LoadView {
+  font-size:14px;
+  color:#7d7d7d;
+  text-align: center;
+}
+.LoadView img {
+  width:47px;
+  height:63px;
+  margin-top:30%;
+}
+.load-div{
+	text-align: center;
+	padding-top: 50px;
+}
+.userName {
+  position: relative;
+  top: 112px;
+  font-size: 16px;
+  color: #ffffff;
+  height: 25px;
+  line-height: 25px;
+  z-index: 100;
+}
+.load-div {
+  font-size:14px;
+  color:#7d7d7d;
+  text-align: center;
+}
+.load-div img {
+  width:47px;
+  margin-top:30%;
+}
+.exit-div{
+	display: flex;
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+	background: #fafafa !important;
+}
+.exit-btn{
+	text-align: center;
+	width: 80%;
+	height: 40px;
+	margin: 0 auto;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	line-height: 40px;
+	background: white;
+	font-size: 14px;
+}
+/* 认证可见 */
+.qualify_tip div {
+  height: 50px;
+  line-height: 53px;
+  color: #FF391A;
+  font-size: 16px;
+}
+.qualify_tip img {
+  width: 12px;
+  height: 14px;
+  margin-top:0;
+  margin-right:7px;
+}
+.search_list .card_con .card_com_inner div:first-child {
+	height: 25px;
+	line-height: 25px;
+  font-size: 14px;
+  color: #7d7d7d;
+}
+.search_list .card_con .card_com_inner:first-child div {
+  text-align: left;
+}
+/* 公司列表最后一格 */
+.search_list .card_con .card_com_inner:last-child {
+  flex: 4;
+  overflow: hidden;
+}
+.search_list .card_con .card_com_inner div:last-child{
+    font-size: 10px;
+    color: rgba(125, 125, 125, 0.5);
+    height: 12px;
+    line-height: 12px;
+}
+body .layui-layer-btn .layui-layer-btn0 {
+	border-color: #F14F2F;
+    background-color: #F14F2F;
+    color: #fff;
+}
