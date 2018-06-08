@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" />
+    	<link rel="stylesheet" href="css/index.css">  	
+    	<script src="js/jquery.min.js"></script>
+    	<script src="js/index.js"></script>
+		<title>fofeasy</title>
+	</head>
+	<body class="fofeasy">
+		<!--头部-->
+		<!--导航栏-->
+		<div class="header-top"></div>
+		<!--头部背景-->
+		<div class="masthead top-bg-easy">
+			<!--<img src="img/top-bg.png" width="100%"/>-->
+			<div class="bg-content">
+				<div class="title">FOF Easy 2.0</div>
+				<div class="title-lg">全面升级&nbsp;&nbsp;全新体验</div>
+				<div class="s-btn lightblue">试用体验<img src="img/arrow-r-g.png" /></div>
+				<div class="img"><img src="img/top-img-easy.png"></div>
+			</div>
+		</div>
+		<!--主体1-->
+		<div class="maincon con1">
+			FoF Easy V2.0是一款以公私募基金查询与组合管理为主要功能的在线工具，基于后台强大的数据库，运用SAAS模式，帮助金融资管机构掌握私募基金市场行情，查询相关基金相关信息，并可以辅助进行产品组合设计和动态跟踪，及时提示风险。
+		</div>
+		<!--主体2-->
+		<div class="maincon easy-con2">
+			<div class="title">
+				实现基金分析的业务链串联
+			</div>
+			<div class="card-con">
+				<div>
+					<div class="card">
+						<div class="img"><img src="img/easy-con2-pic1.png"/></div>
+						<div class="title">多维筛选</div>
+						<div class="con">多指标复合筛选产品或投顾，自定义指标排序，快速锁定目标，并支持数据下载</div>
+					</div>
+					<div class="card">
+						<div class="img"><img src="img/easy-con2-pic2.png"/></div>
+						<div class="title">精准分析</div>
+						<div class="con">实现业绩分析、多因子归因、压力测试、同类对比，以此进行基金及投顾画像</div>
+					</div>
+					<div class="card">
+						<div class="img"><img src="img/easy-con2-pic3.png"/></div>
+						<div class="title">一键报告</div>
+						<div class="con">一键导出分析报告，节约画图制表时间</div>
+					</div>
+				</div>
+				<div>
+					<div class="card">
+						<div class="img"><img src="img/easy-con2-pic4.png"/></div>
+						<div class="title">自主上传</div>
+						<div class="con">自有产品数据上传进行分析</div>
+					</div>
+					<div class="card">
+						<div class="img"><img src="img/easy-con2-pic5.png"/></div>
+						<div class="title">组合配置</div>
+						<div class="con">内置多种组合优化模型，模拟业绩一览无余</div>
+					</div>
+					<div class="card">
+						<div class="img"><img src="img/easy-con2-pic6.png"/></div>
+						<div class="title">行业数据</div>
+						<div class="con">各大策略指数的收益分布，了解市场平均水平</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="maincon easy-con3" style="height: 570px;">
+			<div class="title">
+				海量基金数据
+			</div>
+			<div class="card-con">
+				<div class="card ">
+					<div class="pub1">
+						<div class="img"><img src="img/easy-con3-pic1.png"/></div>
+						<div class="title">公募基金数量</div>
+						<div class="num" id="num1">----</div>
+						<div class="date">
+							<div>数据截至日期：<span class="static-fofeasy-date">--</span></div>
+						</div>
+					</div>
+					<div class="card2 pub" style="margin-right: 10px;">
+						<div class="img"><img src="img/easy-con3-pic2.png" style="width: 40px;height: 40px;margin-top: -5px;"/><span>公募基金数量</span></div>
+						<div id="mutual-con" class="con" style="margin-top: 30px;">
+							<div>股票型基金：1087</div>
+							<div>债券型基金：2353</div>
+							<div>混合型基金：3258</div>
+							<div>货币型基金：849</div>
+							<div>QDII：235</div>
+						</div>
+						<div style="position:absolute;left:100px;bottom: 10px; font-size: 12px;">注：不含其他类型公募基金</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="pub1">
+						<div class="img"><img src="img/easy-con3-pic1.png"/></div>
+						<div class="title">私募基金数量</div>
+						<div class="num" id="num2">------</div>
+						<div class="date">
+							<div>数据截至日期：<span class="static-fofeasy-date">--</span></div>
+						</div>
+					</div>
+					<div class="card2 pri">
+						<div class="img"><img src="img/easy-con3-pic2.png" style="width: 40px;height: 40px;margin-top: -5px;"/><span>私募基金数量</span></div>
+						<div id="hedge-con" class="con">
+							<div>股票策略：65710</div>
+							<div>债券策略：12056</div>
+							<div>管理期货：6627</div>
+							<div>宏观策略：731</div>
+							<div>相对价值：1017</div>
+							<div>组合策略：3014</div>
+							<div>事件驱动：6297</div>
+							<div>多策略：6745</div>
+							<div>其他一级策略：17185</div>
+						</div>
+						<div style="position:absolute;left:100px;bottom: 10px; font-size: 12px;">注：不含非证券类私募基金</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		<!--主体4-->
+		<div class="maincon easy-con4" style="height: 845px;">
+			<div class="card-con">
+				<div>
+					<div class="card">
+					<div class="top-bg">
+						<div class="title">FOF Easy V2.0</div>
+						<div class="img"><img src="img/easy-con4-pic1.png" /><span>基础版</span></div>
+					</div>
+					<div class="main">
+						<div class="radio-con">
+							<div>
+								<img src="img/easy-con4-radio.png" />
+								产品透视
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png" />
+								投顾挖掘
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png" />
+								自定义数据
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								一键导出报告
+							</div>
+						</div>
+						<div class="tip">
+							云端用户名+密码访问
+						</div>
+						<div class="s-btn bottom-btn">
+							申请试用
+						</div>
+					</div>
+				</div>
+				</div>
+				<div>
+					<div class="card">
+					<div class="top-bg">
+						<div class="title">FOF Easy V2.0</div>
+						<div class="img"><img src="img/easy-con4-pic3.png" /><span>组合版</span></div>
+					</div>
+					<div class="main">
+						<div class="radio-con">
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								产品透视
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								投顾挖掘
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								行业数据
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								数据上传
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								组合配置
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								自定义数据
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								一键导出报告
+							</div>
+						</div>
+						<div class="tip">
+							云端用户名+密码访问
+						</div>
+						<div class="s-btn bottom-btn">
+							<div>申请试用</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div>
+					<div class="card">
+					<div class="top-bg">
+						<div class="title">FOF Easy V2.0</div>
+						<div class="img"><img src="img/easy-con4-pic2.png"/><span>升级版</span></div>
+					</div>
+					<div class="main">
+						<div class="radio-con">
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								产品透视
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								投顾挖掘
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								行业数据
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								数据上传
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								自定义数据
+							</div>
+							<div>
+								<img src="img/easy-con4-radio.png"/>
+								一键导出报告
+							</div>
+						</div>
+						<div class="tip">
+							云端用户名+密码访问
+						</div>
+						<div class="s-btn bottom-btn">
+							<div>申请试用</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom" style="margin-top: -80px;"></div>
+	</body>
+</html>

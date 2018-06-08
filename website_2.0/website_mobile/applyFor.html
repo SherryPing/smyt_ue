@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">  
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>申请试用</title>
+		<link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" />
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script src="js/mui.min.js"></script> 
+		<link href="css/mui.min.css" rel="stylesheet">
+		<script src="js/public.js" type="text/javascript"></script>		
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+    	<style type="text/css">
+    		.product_img{  			
+    			height:245px;
+    			background: url('img/top-bg-apply.png') top center no-repeat;
+    			background-size: auto 245px;
+    		}
+    		body{
+    			background-color: white;
+    		}
+    	</style>
+	</head>
+	<body class="container-fluid applyfor">
+		<header class = "load_header"></header>		
+		<div class="row">
+			<!--头部背景-->
+			<div class="product_img" >
+			</div>
+			
+		</div>
+		
+		<!--主体1-->
+		<div class="maincon apply-con1">
+			<div class="apply-title">
+				欢迎您试用私募云通产品系列
+			</div>
+			<div id="content" class="content2">
+				<div class="inpDiv">
+					<form name="personInfo">	
+						<p>姓名:</p>
+						<p><input name="userName" type="text" /></p>
+						<p>手机号:</p>
+						<p><input name="userPhone" type="number" /></p>
+						<p>公司及部门:</p>
+						<p><input name="userCompany" type="text" /></p>
+					</form>
+				</div>
+				<div class="prcTypediv">
+					<p class="slcTxt">
+						请选择使用产品：
+					</p>
+					<form name="radioForm">
+						<div class="radio-card">
+							<div class="firstRadio">
+								<label class="radio">
+					                <input type="radio" value="0" name="type" checked="">
+					                <i></i>
+					                <span>FOF Easy&nbsp;&nbsp;</span>
+				            	</label>
+				            </div>
+				            <div class="secondRadio">
+								<label class="radio">
+					                <input type="radio" value="1" name="type">
+					                <i></i>
+					                <span>私募基金数据库</span>
+				            	</label>
+				            </div>
+						</div>
+						<div class="radio-card">
+							<div class="firstRadio">
+								<label class="radio">
+					                <input type="radio" value="2" name="type">
+					                <i></i>
+					                <span>FOF Power</span>
+				            	</label>
+			            	</div>
+			            	<div class="secondRadio">
+								<label class="radio">
+					                <input type="radio" value="3" name="type">
+					                <i></i>
+					                <span>公募基金数据库</span>
+				            	</label>
+			         	 	</div>
+						</div>
+					</form>
+				</div>
+				<button type="button" id="submit" class="smyt-btn1">提交</button>
+			</div>
+			<div class="submitDiv">
+			</div>
+		</div>
+		
+		<footer class="load_footer"> </footer>
+	</body>
+	
+	<script type="text/javascript" charset="utf-8">
+//  	var windowHeight = window.screen.availHeight;
+//  	document.getElementById('content').style.height = (windowHeight - 64)+"px";
+//    	mui.init();
+      	document.getElementById('submit').addEventListener('click', function() {
+      		if(personInfo.userName.value.trim().length==0){
+      			mui.toast("请输入姓名");
+      		}else if (!(/^1[34578]\d{9}$/.test(personInfo.userPhone.value.trim()))){
+      			mui.toast("请输入正确的手机号")
+      		}else if(personInfo.userCompany.value.trim().length==0){
+      			mui.toast("请输入公司信息");
+      		}else{
+      			var type;
+      			for(var i=0;i<radioForm.type.length;i++)
+				  	{
+					   if(radioForm.type[i].checked)
+					   {
+					   	 type=radioForm.type[i].value; //这里得到单选按钮值
+					   }
+					}
+				$.post("https://wx.fofpower.com/weixin/trial_product/",
+      				{'name':personInfo.userName.value,
+      				  'mobile':personInfo.userPhone.value,
+      				  'company':personInfo.userCompany.value,
+      				  'trial_product': parseInt(type)
+      				},
+//    				function(resp) {
+//    					console.log("提交")
+//    					mui.alert('您的申请已受理，稍后会有工作人员联系您！', '提交成功', '确定',
+//    						callback=function(){
+//    							setTimeout(function(){
+//    								if (typeof(WeixinJSBridge) != 'undefined')
+//    									WeixinJSBridge.call('closeWindow');
+//    							},100);
+//    						})
+//                      if(resp.success) {
+//
+//                      }
+//                 }
+      			);
+      			mui.alert('您的申请已受理，稍后会有工作人员联系您！', '提交成功', '确定',
+					callback=function(){
+						window.location.href="index.html"
+//						setTimeout(function(){
+//							if (typeof(WeixinJSBridge) != 'undefined')
+//								WeixinJSBridge.call('closeWindow');
+//						},100);
+					})
+//				layer.confirm('您的申请已受理，稍后会有工作人员联系您！', {
+//					btn: ['确定'] //可以无限个按钮					  
+//					 },function(index){
+//					 	layer.close(index);
+//					 }
+//				);
+      		}
+      	})
+    
+    </script>
+</html>
